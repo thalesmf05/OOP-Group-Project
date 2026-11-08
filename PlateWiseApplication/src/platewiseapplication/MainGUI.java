@@ -17,6 +17,8 @@ public class MainGUI extends javax.swing.JFrame {
      */
     public MainGUI() {
         initComponents();
+        setSize(1210, 750);
+        setLocationRelativeTo(null);
     }
 
     /**
@@ -28,17 +30,38 @@ public class MainGUI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        sidebarPnl = new javax.swing.JPanel();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("PlateWise");
+        setBackground(new java.awt.Color(18, 27, 40));
+        setPreferredSize(new java.awt.Dimension(1210, 750));
+
+        sidebarPnl.setBackground(new java.awt.Color(13, 29, 47));
+        sidebarPnl.setPreferredSize(new java.awt.Dimension(210, 750));
+
+        javax.swing.GroupLayout sidebarPnlLayout = new javax.swing.GroupLayout(sidebarPnl);
+        sidebarPnl.setLayout(sidebarPnlLayout);
+        sidebarPnlLayout.setHorizontalGroup(
+            sidebarPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 210, Short.MAX_VALUE)
+        );
+        sidebarPnlLayout.setVerticalGroup(
+            sidebarPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 750, Short.MAX_VALUE)
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(sidebarPnl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 300, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addComponent(sidebarPnl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -70,5 +93,6 @@ public class MainGUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel sidebarPnl;
     // End of variables declaration//GEN-END:variables
 }
