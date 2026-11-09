@@ -30,24 +30,61 @@ public class MainGUI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        sidebarPnl = new javax.swing.JPanel();
+        sideBarPnl = new javax.swing.JPanel();
+        dailyDiaryBtn = new javax.swing.JToggleButton();
+        mealPlannerBtn = new javax.swing.JToggleButton();
+        pantryBtn = new javax.swing.JToggleButton();
+        mainContentPanel = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("PlateWise");
         setBackground(new java.awt.Color(18, 27, 40));
         setPreferredSize(new java.awt.Dimension(1210, 750));
 
-        sidebarPnl.setBackground(new java.awt.Color(13, 29, 47));
-        sidebarPnl.setPreferredSize(new java.awt.Dimension(210, 750));
+        sideBarPnl.setBackground(new java.awt.Color(13, 29, 47));
+        sideBarPnl.setPreferredSize(new java.awt.Dimension(210, 750));
 
-        javax.swing.GroupLayout sidebarPnlLayout = new javax.swing.GroupLayout(sidebarPnl);
-        sidebarPnl.setLayout(sidebarPnlLayout);
-        sidebarPnlLayout.setHorizontalGroup(
-            sidebarPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 210, Short.MAX_VALUE)
+        dailyDiaryBtn.setText("Daily Diary");
+
+        mealPlannerBtn.setText("Meal Planner");
+
+        pantryBtn.setText("Pantry");
+        pantryBtn.addActionListener(this::pantryBtnActionPerformed);
+
+        javax.swing.GroupLayout sideBarPnlLayout = new javax.swing.GroupLayout(sideBarPnl);
+        sideBarPnl.setLayout(sideBarPnlLayout);
+        sideBarPnlLayout.setHorizontalGroup(
+            sideBarPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(sideBarPnlLayout.createSequentialGroup()
+                .addGap(42, 42, 42)
+                .addGroup(sideBarPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(pantryBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(mealPlannerBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(dailyDiaryBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(63, Short.MAX_VALUE))
         );
-        sidebarPnlLayout.setVerticalGroup(
-            sidebarPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        sideBarPnlLayout.setVerticalGroup(
+            sideBarPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(sideBarPnlLayout.createSequentialGroup()
+                .addGap(89, 89, 89)
+                .addComponent(dailyDiaryBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(pantryBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(mealPlannerBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(448, Short.MAX_VALUE))
+        );
+
+        mainContentPanel.setPreferredSize(new java.awt.Dimension(1000, 750));
+
+        javax.swing.GroupLayout mainContentPanelLayout = new javax.swing.GroupLayout(mainContentPanel);
+        mainContentPanel.setLayout(mainContentPanelLayout);
+        mainContentPanelLayout.setHorizontalGroup(
+            mainContentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1000, Short.MAX_VALUE)
+        );
+        mainContentPanelLayout.setVerticalGroup(
+            mainContentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 750, Short.MAX_VALUE)
         );
 
@@ -56,16 +93,35 @@ public class MainGUI extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(sidebarPnl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 300, Short.MAX_VALUE))
+                .addComponent(sideBarPnl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(mainContentPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(sidebarPnl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(sideBarPnl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(mainContentPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void pantryBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pantryBtnActionPerformed
+        // TODO add your handling code here:
+        mainContentPanel.removeAll();
+
+        mainContentPanel.setLayout(new java.awt.BorderLayout());
+
+        mainContentPanel.add(
+            new pantry.PantryGUI(),
+            java.awt.BorderLayout.CENTER
+        );
+
+        mainContentPanel.revalidate();
+        mainContentPanel.repaint();
+        
+    }//GEN-LAST:event_pantryBtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -93,6 +149,10 @@ public class MainGUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel sidebarPnl;
+    private javax.swing.JToggleButton dailyDiaryBtn;
+    private javax.swing.JPanel mainContentPanel;
+    private javax.swing.JToggleButton mealPlannerBtn;
+    private javax.swing.JToggleButton pantryBtn;
+    private javax.swing.JPanel sideBarPnl;
     // End of variables declaration//GEN-END:variables
 }
