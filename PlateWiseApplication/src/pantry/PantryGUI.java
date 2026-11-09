@@ -39,7 +39,7 @@ public class PantryGUI extends javax.swing.JPanel {
         expiringTitleLbl = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(18, 27, 40));
-        setPreferredSize(new java.awt.Dimension(1000, 700));
+        setPreferredSize(new java.awt.Dimension(1000, 750));
 
         pantryTitleLbl.setFont(new java.awt.Font("SansSerif", 1, 24)); // NOI18N
         pantryTitleLbl.setForeground(new java.awt.Color(255, 255, 255));
