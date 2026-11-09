@@ -47,6 +47,7 @@ public class MainGUI extends javax.swing.JFrame {
         dailyDiaryBtn.setText("Daily Diary");
 
         mealPlannerBtn.setText("Meal Planner");
+        mealPlannerBtn.addActionListener(this::mealPlannerBtnActionPerformed);
 
         pantryBtn.setText("Pantry");
         pantryBtn.addActionListener(this::pantryBtnActionPerformed);
@@ -122,6 +123,20 @@ public class MainGUI extends javax.swing.JFrame {
         mainContentPanel.repaint();
         
     }//GEN-LAST:event_pantryBtnActionPerformed
+
+    private void mealPlannerBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mealPlannerBtnActionPerformed
+        mainContentPanel.removeAll();
+
+        mainContentPanel.setLayout(new java.awt.BorderLayout());
+
+        mainContentPanel.add(
+            new mealplanner.MealPlannerGUI(),
+            java.awt.BorderLayout.CENTER
+        );
+
+        mainContentPanel.revalidate();
+        mainContentPanel.repaint();
+    }//GEN-LAST:event_mealPlannerBtnActionPerformed
 
     /**
      * @param args the command line arguments
