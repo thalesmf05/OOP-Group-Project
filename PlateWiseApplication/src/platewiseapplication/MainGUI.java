@@ -6,7 +6,7 @@ package platewiseapplication;
 
 /**
  *
- * @author mlz
+ * @author Matheus, Merlin, Thales
  */
 public class MainGUI extends javax.swing.JFrame {
     

@@ -7,7 +7,7 @@ package platewiseapplication;
 
 /**
  *
- * @author Merlin M
+ * @author Matheus, Merlin, Thales
  */
 public class PlateWiseApp {
 
