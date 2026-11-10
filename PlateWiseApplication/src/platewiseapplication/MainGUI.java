@@ -130,7 +130,7 @@ public class MainGUI extends javax.swing.JFrame {
         mainContentPanel.setLayout(new java.awt.BorderLayout());
 
         mainContentPanel.add(
-            new mealplanner.MealPlannerGUI(),
+            new mealplanner.GUI.MealPlannerGUI(),
             java.awt.BorderLayout.CENTER
         );
 
