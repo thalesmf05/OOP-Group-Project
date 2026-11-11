@@ -45,6 +45,7 @@ public class MainGUI extends javax.swing.JFrame {
         sideBarPnl.setPreferredSize(new java.awt.Dimension(210, 750));
 
         dailyDiaryBtn.setText("Daily Diary");
+        dailyDiaryBtn.addActionListener(this::dailyDiaryBtnActionPerformed);
 
         mealPlannerBtn.setText("Meal Planner");
         mealPlannerBtn.addActionListener(this::mealPlannerBtnActionPerformed);
@@ -137,6 +138,20 @@ public class MainGUI extends javax.swing.JFrame {
         mainContentPanel.revalidate();
         mainContentPanel.repaint();
     }//GEN-LAST:event_mealPlannerBtnActionPerformed
+
+    private void dailyDiaryBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dailyDiaryBtnActionPerformed
+       mainContentPanel.removeAll();
+
+        mainContentPanel.setLayout(new java.awt.BorderLayout());
+
+        mainContentPanel.add(
+            new dailydiary.DailyDiaryGUI(),
+            java.awt.BorderLayout.CENTER
+        );
+
+        mainContentPanel.revalidate();
+        mainContentPanel.repaint();
+    }//GEN-LAST:event_dailyDiaryBtnActionPerformed
 
     /**
      * @param args the command line arguments

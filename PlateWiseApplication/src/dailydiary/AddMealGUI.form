@@ -57,8 +57,8 @@
                               </Group>
                               <EmptySpace max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="portionLbl" min="-2" max="-2" attributes="0"/>
-                                  <Component id="portionTxt" min="-2" pref="350" max="-2" attributes="0"/>
+                                  <Component id="quantityLbl" min="-2" max="-2" attributes="0"/>
+                                  <Component id="quantityTxt" min="-2" pref="350" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -98,12 +98,12 @@
               <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="mealTypeLbl" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="portionLbl" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="quantityLbl" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="mealTypeCombo" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
-                  <Component id="portionTxt" alignment="0" pref="34" max="32767" attributes="0"/>
+                  <Component id="quantityTxt" alignment="0" pref="34" max="32767" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="nutritionLbl" min="-2" max="-2" attributes="0"/>
@@ -153,6 +153,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="SansSerif" size="13" style="0"/>
         </Property>
+        <Property name="text" type="java.lang.String" value="e.g. Chicken and rice"/>
         <Property name="size" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[78, 34]"/>
         </Property>
@@ -179,7 +180,7 @@
             <StringItem index="0" value="Breakfast"/>
             <StringItem index="1" value="Lunch"/>
             <StringItem index="2" value="Dinner"/>
-            <StringItem index="3" value=" "/>
+            <StringItem index="3" value="Snack"/>
           </StringArray>
         </Property>
       </Properties>
@@ -190,15 +191,21 @@
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
       </AuxValues>
     </Component>
-    <Component class="javax.swing.JLabel" name="portionLbl">
+    <Component class="javax.swing.JLabel" name="quantityLbl">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="SansSerif" size="16" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Portion"/>
+        <Property name="text" type="java.lang.String" value="Quantity"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="portionTxt">
+    <Component class="javax.swing.JTextField" name="quantityTxt">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="e.g. 1 portion"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="quantityTxtActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="nutritionLbl">
       <Properties>
@@ -267,7 +274,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="SansSerif" size="14" style="0"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="0"/>
+        <Property name="text" type="java.lang.String" value="e.g. 450"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="caloriesTxtActionPerformed"/>
@@ -278,7 +285,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="SansSerif" size="14" style="0"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="0"/>
+        <Property name="text" type="java.lang.String" value="e.g. 35"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="proteinTxtActionPerformed"/>
@@ -289,7 +296,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="SansSerif" size="14" style="0"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="0"/>
+        <Property name="text" type="java.lang.String" value="e.g. 50"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="carbsTxtActionPerformed"/>
@@ -300,7 +307,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="SansSerif" size="14" style="0"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="0"/>
+        <Property name="text" type="java.lang.String" value="e.g. 12"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="fatTxtActionPerformed"/>

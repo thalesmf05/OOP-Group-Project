@@ -33,8 +33,8 @@ public class AddMealGUI extends javax.swing.JFrame {
         foodNameTxt = new javax.swing.JTextField();
         mealTypeLbl = new javax.swing.JLabel();
         mealTypeCombo = new javax.swing.JComboBox<>();
-        portionLbl = new javax.swing.JLabel();
-        portionTxt = new javax.swing.JTextField();
+        quantityLbl = new javax.swing.JLabel();
+        quantityTxt = new javax.swing.JTextField();
         nutritionLbl = new javax.swing.JLabel();
         caloriesLbl = new javax.swing.JLabel();
         proteinLbl = new javax.swing.JLabel();
@@ -58,6 +58,7 @@ public class AddMealGUI extends javax.swing.JFrame {
         foodNameLbl.setText("Food Name");
 
         foodNameTxt.setFont(new java.awt.Font("SansSerif", 0, 13)); // NOI18N
+        foodNameTxt.setText("e.g. Chicken and rice");
         foodNameTxt.setSize(new java.awt.Dimension(78, 34));
         foodNameTxt.addActionListener(this::foodNameTxtActionPerformed);
 
@@ -65,11 +66,14 @@ public class AddMealGUI extends javax.swing.JFrame {
         mealTypeLbl.setText("Meal Type");
 
         mealTypeCombo.setFont(new java.awt.Font("SansSerif", 0, 13)); // NOI18N
-        mealTypeCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Breakfast", "Lunch", "Dinner", " " }));
+        mealTypeCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Breakfast", "Lunch", "Dinner", "Snack" }));
         mealTypeCombo.addActionListener(this::mealTypeComboActionPerformed);
 
-        portionLbl.setFont(new java.awt.Font("SansSerif", 1, 16)); // NOI18N
-        portionLbl.setText("Portion");
+        quantityLbl.setFont(new java.awt.Font("SansSerif", 1, 16)); // NOI18N
+        quantityLbl.setText("Quantity");
+
+        quantityTxt.setText("e.g. 1 portion");
+        quantityTxt.addActionListener(this::quantityTxtActionPerformed);
 
         nutritionLbl.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
         nutritionLbl.setText("Nutrition");
@@ -95,19 +99,19 @@ public class AddMealGUI extends javax.swing.JFrame {
         cancelBtn.addActionListener(this::cancelBtnActionPerformed);
 
         caloriesTxt.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
-        caloriesTxt.setText("0");
+        caloriesTxt.setText("e.g. 450");
         caloriesTxt.addActionListener(this::caloriesTxtActionPerformed);
 
         proteinTxt.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
-        proteinTxt.setText("0");
+        proteinTxt.setText("e.g. 35");
         proteinTxt.addActionListener(this::proteinTxtActionPerformed);
 
         carbsTxt.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
-        carbsTxt.setText("0");
+        carbsTxt.setText("e.g. 50");
         carbsTxt.addActionListener(this::carbsTxtActionPerformed);
 
         fatTxt.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
-        fatTxt.setText("0");
+        fatTxt.setText("e.g. 12");
         fatTxt.addActionListener(this::fatTxtActionPerformed);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -137,8 +141,8 @@ public class AddMealGUI extends javax.swing.JFrame {
                                             .addComponent(proteinTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(portionLbl)
-                                    .addComponent(portionTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(quantityLbl)
+                                    .addComponent(quantityTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(nutritionLbl)
                                 .addComponent(foodNameLbl)
@@ -168,11 +172,11 @@ public class AddMealGUI extends javax.swing.JFrame {
                 .addGap(22, 22, 22)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(mealTypeLbl)
-                    .addComponent(portionLbl))
+                    .addComponent(quantityLbl))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(mealTypeCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(portionTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE))
+                    .addComponent(quantityTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addComponent(nutritionLbl)
                 .addGap(16, 16, 16)
@@ -229,6 +233,10 @@ public class AddMealGUI extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_fatTxtActionPerformed
 
+    private void quantityTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_quantityTxtActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_quantityTxtActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -267,10 +275,10 @@ public class AddMealGUI extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> mealTypeCombo;
     private javax.swing.JLabel mealTypeLbl;
     private javax.swing.JLabel nutritionLbl;
-    private javax.swing.JLabel portionLbl;
-    private javax.swing.JTextField portionTxt;
     private javax.swing.JLabel proteinLbl;
     private javax.swing.JTextField proteinTxt;
+    private javax.swing.JLabel quantityLbl;
+    private javax.swing.JTextField quantityTxt;
     private javax.swing.JButton saveMealBtn;
     private javax.swing.JLabel titleLbl;
     // End of variables declaration//GEN-END:variables
