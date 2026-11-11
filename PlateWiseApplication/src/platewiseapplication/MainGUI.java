@@ -38,10 +38,10 @@ public class MainGUI extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("PlateWise");
-        setBackground(new java.awt.Color(18, 27, 40));
+        setBackground(new java.awt.Color(29, 43, 60));
         setPreferredSize(new java.awt.Dimension(1210, 750));
 
-        sideBarPnl.setBackground(new java.awt.Color(13, 29, 47));
+        sideBarPnl.setBackground(new java.awt.Color(35, 52, 72));
         sideBarPnl.setPreferredSize(new java.awt.Dimension(210, 750));
 
         dailyDiaryBtn.setText("Daily Diary");
@@ -62,7 +62,7 @@ public class MainGUI extends javax.swing.JFrame {
                     .addComponent(pantryBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(mealPlannerBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(dailyDiaryBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(63, Short.MAX_VALUE))
+                .addContainerGap(71, Short.MAX_VALUE))
         );
         sideBarPnlLayout.setVerticalGroup(
             sideBarPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -76,6 +76,7 @@ public class MainGUI extends javax.swing.JFrame {
                 .addContainerGap(448, Short.MAX_VALUE))
         );
 
+        mainContentPanel.setBackground(new java.awt.Color(29, 43, 60));
         mainContentPanel.setPreferredSize(new java.awt.Dimension(1000, 750));
 
         javax.swing.GroupLayout mainContentPanelLayout = new javax.swing.GroupLayout(mainContentPanel);
