@@ -111,12 +111,9 @@ public class DailyDiaryGUI extends javax.swing.JPanel {
             .addGroup(headerPnlLayout.createSequentialGroup()
                 .addGap(12, 12, 12)
                 .addGroup(headerPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(headerPnlLayout.createSequentialGroup()
-                        .addComponent(dailyDiaryDescLbl)
-                        .addContainerGap(752, Short.MAX_VALUE))
-                    .addGroup(headerPnlLayout.createSequentialGroup()
-                        .addComponent(dailyDiaryTitleLbl)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                    .addComponent(dailyDiaryDescLbl)
+                    .addComponent(dailyDiaryTitleLbl))
+                .addContainerGap(752, Short.MAX_VALUE))
         );
         headerPnlLayout.setVerticalGroup(
             headerPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -369,7 +366,9 @@ public class DailyDiaryGUI extends javax.swing.JPanel {
         mealsScrollPnl.setPreferredSize(new java.awt.Dimension(452, 270));
         mealsScrollPnl.setSize(new java.awt.Dimension(452, 270));
 
+        mealsTab.setBackground(new java.awt.Color(23, 40, 59));
         mealsTab.setFont(new java.awt.Font("SansSerif", 0, 13)); // NOI18N
+        mealsTab.setForeground(new java.awt.Color(255, 255, 255));
         mealsTab.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {"Breakfast", "Oats, Banana, Protein Shake", "1 portion",  new Integer(520), "P: 35g C: 70g F: 15g", "Edit / Delete"},
@@ -400,6 +399,7 @@ public class DailyDiaryGUI extends javax.swing.JPanel {
         mealsTab.setRowHeight(55);
         mealsTab.setSelectionBackground(new java.awt.Color(35, 119, 220));
         mealsTab.setSelectionForeground(new java.awt.Color(255, 255, 255));
+        mealsTab.setShowGrid(true);
         mealsTab.setShowHorizontalLines(true);
         mealsScrollPnl.setViewportView(mealsTab);
         if (mealsTab.getColumnModel().getColumnCount() > 0) {
@@ -446,11 +446,11 @@ public class DailyDiaryGUI extends javax.swing.JPanel {
             mealsTabPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(mealsTabPnlLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(mealsTabPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(mealHeadingLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(mealsTabPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(mealsTabPnlLayout.createSequentialGroup()
                         .addGap(4, 4, 4)
-                        .addComponent(addMealBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addComponent(addMealBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(mealHeadingLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(mealsScrollPnl, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(90, 90, 90))
@@ -469,7 +469,9 @@ public class DailyDiaryGUI extends javax.swing.JPanel {
         nutritionDescriptionLbl.setForeground(new java.awt.Color(181, 198, 216));
         nutritionDescriptionLbl.setText("View the calories and macronutrients for each meal.");
 
+        nutritionTable.setBackground(new java.awt.Color(23, 40, 59));
         nutritionTable.setFont(new java.awt.Font("SansSerif", 0, 13)); // NOI18N
+        nutritionTable.setForeground(new java.awt.Color(255, 255, 255));
         nutritionTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {"Breakfast ",  new Integer(520),  new Integer(35),  new Integer(70),  new Integer(15)},
@@ -491,8 +493,8 @@ public class DailyDiaryGUI extends javax.swing.JPanel {
         });
         nutritionTable.setGridColor(new java.awt.Color(38, 59, 78));
         nutritionTable.setRowHeight(55);
+        nutritionTable.setSelectionBackground(new java.awt.Color(23, 40, 59));
         nutritionTable.setShowGrid(true);
-        nutritionTable.setShowVerticalLines(false);
         jScrollPane1.setViewportView(nutritionTable);
 
         javax.swing.GroupLayout nutritionTabPnlLayout = new javax.swing.GroupLayout(nutritionTabPnl);
@@ -614,9 +616,7 @@ public class DailyDiaryGUI extends javax.swing.JPanel {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, editGoalsPnlLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(editGoalsPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(editGoalsPnlLayout.createSequentialGroup()
-                        .addComponent(editTitleLbl)
-                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(editTitleLbl)
                     .addGroup(editGoalsPnlLayout.createSequentialGroup()
                         .addGroup(editGoalsPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(caloriesGoalLbl)
@@ -632,9 +632,9 @@ public class DailyDiaryGUI extends javax.swing.JPanel {
                                 .addComponent(carbsGoalLbl))
                             .addComponent(proteinGoalTxt)
                             .addComponent(fatGoalTxt))
-                        .addGap(27, 27, 27)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(saveGoalsBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addContainerGap())
+                .addGap(21, 21, 21))
         );
         editGoalsPnlLayout.setVerticalGroup(
             editGoalsPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -872,21 +872,13 @@ public class DailyDiaryGUI extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addMealBtn;
     private javax.swing.JPanel caloriesCardPnl;
-    private javax.swing.JPanel caloriesCardPnl1;
-    private javax.swing.JPanel caloriesCardPnl2;
     private javax.swing.JLabel caloriesGoalLbl;
     private javax.swing.JPanel caloriesGoalPnl;
     private javax.swing.JTextField caloriesGoalTxt;
     private javax.swing.JLabel caloriesGoalsTitleLbl;
     private javax.swing.JProgressBar caloriesProgressBar;
-    private javax.swing.JProgressBar caloriesProgressBar1;
-    private javax.swing.JProgressBar caloriesProgressBar2;
     private javax.swing.JLabel caloriesTitleLbl;
-    private javax.swing.JLabel caloriesTitleLbl1;
-    private javax.swing.JLabel caloriesTitleLbl2;
     private javax.swing.JLabel caloriesValueLbl;
-    private javax.swing.JLabel caloriesValueLbl1;
-    private javax.swing.JLabel caloriesValueLbl2;
     private javax.swing.JLabel caloriesValueLbl3;
     private javax.swing.JLabel caloriesValueLbl5;
     private javax.swing.JPanel carbGoalPnl;
