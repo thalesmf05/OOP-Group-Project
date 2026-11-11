@@ -100,7 +100,7 @@ public class PantryGUI extends javax.swing.JPanel {
         foodNameLbl1 = new javax.swing.JLabel();
         foodNameTf1 = new javax.swing.JTextField();
 
-        setBackground(new java.awt.Color(55, 76, 101));
+        setBackground(new java.awt.Color(23, 40, 59));
         setPreferredSize(new java.awt.Dimension(1000, 750));
 
         pantryTitleLbl.setBackground(new java.awt.Color(255, 255, 255));
@@ -136,7 +136,7 @@ public class PantryGUI extends javax.swing.JPanel {
                 .addGroup(totalItemsPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(totalItemsTitleLbl)
                     .addComponent(totalItemsValueLbl))
-                .addContainerGap(83, Short.MAX_VALUE))
+                .addContainerGap(70, Short.MAX_VALUE))
         );
         totalItemsPnlLayout.setVerticalGroup(
             totalItemsPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -145,7 +145,7 @@ public class PantryGUI extends javax.swing.JPanel {
                 .addComponent(totalItemsValueLbl)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(totalItemsTitleLbl)
-                .addContainerGap(20, Short.MAX_VALUE))
+                .addContainerGap(22, Short.MAX_VALUE))
         );
 
         perishablePnl.setBackground(new java.awt.Color(18, 50, 74));
@@ -168,7 +168,7 @@ public class PantryGUI extends javax.swing.JPanel {
                 .addGroup(perishablePnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(perishableTitleLbl)
                     .addComponent(perishableValueLbl))
-                .addContainerGap(22, Short.MAX_VALUE))
+                .addContainerGap(9, Short.MAX_VALUE))
         );
         perishablePnlLayout.setVerticalGroup(
             perishablePnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -177,7 +177,7 @@ public class PantryGUI extends javax.swing.JPanel {
                 .addComponent(perishableValueLbl)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(perishableTitleLbl)
-                .addContainerGap(18, Short.MAX_VALUE))
+                .addContainerGap(20, Short.MAX_VALUE))
         );
 
         expiringPnl.setBackground(new java.awt.Color(41, 36, 64));
@@ -200,7 +200,7 @@ public class PantryGUI extends javax.swing.JPanel {
                 .addGroup(expiringPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(expiringTitleLbl)
                     .addComponent(expiringValueLbl))
-                .addContainerGap(48, Short.MAX_VALUE))
+                .addContainerGap(39, Short.MAX_VALUE))
         );
         expiringPnlLayout.setVerticalGroup(
             expiringPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -209,7 +209,7 @@ public class PantryGUI extends javax.swing.JPanel {
                 .addComponent(expiringValueLbl)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(expiringTitleLbl)
-                .addContainerGap(17, Short.MAX_VALUE))
+                .addContainerGap(19, Short.MAX_VALUE))
         );
 
         pantryTabbedPn.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
@@ -734,7 +734,7 @@ public class PantryGUI extends javax.swing.JPanel {
                 .addGroup(storageAdviceRowPnl1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(storageAdviceTf1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(storageAdviceLbl1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 12, Short.MAX_VALUE))
+                .addGap(0, 11, Short.MAX_VALUE))
         );
 
         itemTypeRowPnl1.setPreferredSize(new java.awt.Dimension(700, 35));
@@ -798,7 +798,7 @@ public class PantryGUI extends javax.swing.JPanel {
                 .addGroup(expiryDateRowPnl1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(expiryDateTf1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(expiryDateLbl1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 12, Short.MAX_VALUE))
+                .addGap(0, 11, Short.MAX_VALUE))
         );
 
         unitRowPnl1.setPreferredSize(new java.awt.Dimension(700, 35));
@@ -897,7 +897,7 @@ public class PantryGUI extends javax.swing.JPanel {
                 .addGroup(foodNameRowPnl1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(foodNameTf1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(foodNameLbl1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 11, Short.MAX_VALUE))
+                .addGap(0, 10, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout editItemPnlLayout = new javax.swing.GroupLayout(editItemPnl);

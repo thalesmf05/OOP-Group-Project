@@ -61,7 +61,7 @@ public class MealPlannerGUI extends javax.swing.JPanel {
         carbsLbl2 = new javax.swing.JLabel();
         fatLbl2 = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(55, 76, 101));
+        setBackground(new java.awt.Color(23, 40, 59));
         setPreferredSize(new java.awt.Dimension(1000, 750));
         setSize(new java.awt.Dimension(1000, 750));
 
@@ -145,17 +145,11 @@ public class MealPlannerGUI extends javax.swing.JPanel {
                         .addComponent(timeLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                 .addGroup(MealPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(MealPnlLayout.createSequentialGroup()
-                        .addGroup(MealPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(fatLbl)
-                            .addComponent(proteinLbl)
-                            .addGroup(MealPnlLayout.createSequentialGroup()
-                                .addComponent(typeLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE)))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(MealPnlLayout.createSequentialGroup()
-                        .addComponent(DeleteBtn)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                    .addComponent(fatLbl)
+                    .addComponent(proteinLbl)
+                    .addComponent(typeLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(DeleteBtn))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MealPnlLayout.createSequentialGroup()
                 .addContainerGap(45, Short.MAX_VALUE)
                 .addComponent(mealNameLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
