@@ -34,9 +34,29 @@ public class DailyDiaryGUI extends javax.swing.JPanel {
         nextDateBtn = new javax.swing.JButton();
         nutritionPnl = new javax.swing.JPanel();
         caloriesCardPnl = new javax.swing.JPanel();
+        caloriesTitleLbl = new javax.swing.JLabel();
+        caloriesValueLbl = new javax.swing.JLabel();
+        caloriesProgressBar = new javax.swing.JProgressBar();
         proteinCardPnl = new javax.swing.JPanel();
+        proteinTitleLbl = new javax.swing.JLabel();
+        proteinProgressBar = new javax.swing.JProgressBar();
+        proteinValueLbl = new javax.swing.JLabel();
         carbsCardPnl = new javax.swing.JPanel();
+        carbsTitleLbl = new javax.swing.JLabel();
+        carbsValueLbl = new javax.swing.JLabel();
+        carbsProgressBar = new javax.swing.JProgressBar();
         fatCardPnl = new javax.swing.JPanel();
+        fatTitleLbl = new javax.swing.JLabel();
+        fatValueLbl = new javax.swing.JLabel();
+        fatProgressBar = new javax.swing.JProgressBar();
+        mealsPnl = new javax.swing.JPanel();
+        mealsTabPn = new javax.swing.JTabbedPane();
+        mealsTabPnl = new javax.swing.JPanel();
+        mealsScrollPnl = new javax.swing.JScrollPane();
+        mealsTab = new javax.swing.JTable();
+        addMealBtn = new javax.swing.JButton();
+        nutritionTabPnl = new javax.swing.JPanel();
+        goalsTabPnl = new javax.swing.JPanel();
 
         setBackground(new java.awt.Color(18, 27, 40));
         setPreferredSize(new java.awt.Dimension(1000, 750));
@@ -46,7 +66,7 @@ public class DailyDiaryGUI extends javax.swing.JPanel {
 
         dailyDiaryTitleLbl.setFont(new java.awt.Font("SansSerif", 1, 24)); // NOI18N
         dailyDiaryTitleLbl.setForeground(new java.awt.Color(241, 245, 249));
-        dailyDiaryTitleLbl.setText("Daily Dairy");
+        dailyDiaryTitleLbl.setText("Daily Diary");
 
         dailyDiaryDescLbl.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
         dailyDiaryDescLbl.setForeground(new java.awt.Color(181, 198, 216));
@@ -110,60 +130,198 @@ public class DailyDiaryGUI extends javax.swing.JPanel {
         caloriesCardPnl.setToolTipText("");
         caloriesCardPnl.setPreferredSize(new java.awt.Dimension(220, 100));
 
+        caloriesTitleLbl.setBackground(new java.awt.Color(241, 245, 249));
+        caloriesTitleLbl.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
+        caloriesTitleLbl.setForeground(new java.awt.Color(241, 245, 249));
+        caloriesTitleLbl.setText("Calories");
+
+        caloriesValueLbl.setFont(new java.awt.Font("SansSerif", 1, 20)); // NOI18N
+        caloriesValueLbl.setForeground(new java.awt.Color(255, 255, 255));
+        caloriesValueLbl.setText("1,850 / 2,500 kcal");
+
+        caloriesProgressBar.setBackground(new java.awt.Color(49, 74, 80));
+        caloriesProgressBar.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
+        caloriesProgressBar.setForeground(new java.awt.Color(55, 125, 122));
+        caloriesProgressBar.setValue(74);
+        caloriesProgressBar.setBorderPainted(false);
+
         javax.swing.GroupLayout caloriesCardPnlLayout = new javax.swing.GroupLayout(caloriesCardPnl);
         caloriesCardPnl.setLayout(caloriesCardPnlLayout);
         caloriesCardPnlLayout.setHorizontalGroup(
             caloriesCardPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 220, Short.MAX_VALUE)
+            .addGroup(caloriesCardPnlLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(caloriesCardPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(caloriesProgressBar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(caloriesCardPnlLayout.createSequentialGroup()
+                        .addGroup(caloriesCardPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(caloriesTitleLbl)
+                            .addComponent(caloriesValueLbl))
+                        .addGap(0, 19, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         caloriesCardPnlLayout.setVerticalGroup(
             caloriesCardPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
+            .addGroup(caloriesCardPnlLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(caloriesTitleLbl)
+                .addGap(18, 18, 18)
+                .addComponent(caloriesValueLbl)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(caloriesProgressBar, javax.swing.GroupLayout.PREFERRED_SIZE, 6, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(18, Short.MAX_VALUE))
         );
+
+        caloriesTitleLbl.getAccessibleContext().setAccessibleDescription("");
 
         proteinCardPnl.setBackground(new java.awt.Color(18, 47, 70));
         proteinCardPnl.setToolTipText("");
         proteinCardPnl.setPreferredSize(new java.awt.Dimension(220, 100));
 
+        proteinTitleLbl.setBackground(new java.awt.Color(241, 245, 249));
+        proteinTitleLbl.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
+        proteinTitleLbl.setForeground(new java.awt.Color(241, 245, 249));
+        proteinTitleLbl.setText("Protein");
+
+        proteinProgressBar.setBackground(new java.awt.Color(49, 74, 80));
+        proteinProgressBar.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
+        proteinProgressBar.setForeground(new java.awt.Color(70, 190, 240));
+        proteinProgressBar.setValue(80);
+        proteinProgressBar.setBorderPainted(false);
+
+        proteinValueLbl.setFont(new java.awt.Font("SansSerif", 1, 20)); // NOI18N
+        proteinValueLbl.setForeground(new java.awt.Color(255, 255, 255));
+        proteinValueLbl.setText("120 / 150 g");
+
         javax.swing.GroupLayout proteinCardPnlLayout = new javax.swing.GroupLayout(proteinCardPnl);
         proteinCardPnl.setLayout(proteinCardPnlLayout);
         proteinCardPnlLayout.setHorizontalGroup(
             proteinCardPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 220, Short.MAX_VALUE)
+            .addGroup(proteinCardPnlLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(proteinCardPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(proteinTitleLbl)
+                    .addComponent(proteinValueLbl))
+                .addContainerGap(91, Short.MAX_VALUE))
+            .addGroup(proteinCardPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(proteinCardPnlLayout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(proteinProgressBar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addContainerGap()))
         );
         proteinCardPnlLayout.setVerticalGroup(
             proteinCardPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
+            .addGroup(proteinCardPnlLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(proteinTitleLbl)
+                .addGap(18, 18, 18)
+                .addComponent(proteinValueLbl)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(proteinCardPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(proteinCardPnlLayout.createSequentialGroup()
+                    .addGap(73, 73, 73)
+                    .addComponent(proteinProgressBar, javax.swing.GroupLayout.PREFERRED_SIZE, 6, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(21, Short.MAX_VALUE)))
         );
 
         carbsCardPnl.setBackground(new java.awt.Color(41, 36, 66));
         carbsCardPnl.setToolTipText("");
         carbsCardPnl.setPreferredSize(new java.awt.Dimension(220, 100));
 
+        carbsTitleLbl.setBackground(new java.awt.Color(241, 245, 249));
+        carbsTitleLbl.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
+        carbsTitleLbl.setForeground(new java.awt.Color(241, 245, 249));
+        carbsTitleLbl.setText("Carbs");
+
+        carbsValueLbl.setFont(new java.awt.Font("SansSerif", 1, 20)); // NOI18N
+        carbsValueLbl.setForeground(new java.awt.Color(255, 255, 255));
+        carbsValueLbl.setText("210 / 300 g");
+
+        carbsProgressBar.setBackground(new java.awt.Color(49, 74, 80));
+        carbsProgressBar.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
+        carbsProgressBar.setForeground(new java.awt.Color(112, 91, 157));
+        carbsProgressBar.setValue(70);
+        carbsProgressBar.setBorderPainted(false);
+
         javax.swing.GroupLayout carbsCardPnlLayout = new javax.swing.GroupLayout(carbsCardPnl);
         carbsCardPnl.setLayout(carbsCardPnlLayout);
         carbsCardPnlLayout.setHorizontalGroup(
             carbsCardPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 220, Short.MAX_VALUE)
+            .addGroup(carbsCardPnlLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(carbsCardPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(carbsTitleLbl)
+                    .addComponent(carbsValueLbl))
+                .addContainerGap(91, Short.MAX_VALUE))
+            .addGroup(carbsCardPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(carbsCardPnlLayout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(carbsProgressBar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addContainerGap()))
         );
         carbsCardPnlLayout.setVerticalGroup(
             carbsCardPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
+            .addGroup(carbsCardPnlLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(carbsTitleLbl)
+                .addGap(18, 18, 18)
+                .addComponent(carbsValueLbl)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(carbsCardPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(carbsCardPnlLayout.createSequentialGroup()
+                    .addGap(73, 73, 73)
+                    .addComponent(carbsProgressBar, javax.swing.GroupLayout.PREFERRED_SIZE, 6, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(21, Short.MAX_VALUE)))
         );
 
         fatCardPnl.setBackground(new java.awt.Color(57, 52, 38));
         fatCardPnl.setToolTipText("");
         fatCardPnl.setPreferredSize(new java.awt.Dimension(220, 100));
 
+        fatTitleLbl.setBackground(new java.awt.Color(241, 245, 249));
+        fatTitleLbl.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
+        fatTitleLbl.setForeground(new java.awt.Color(241, 245, 249));
+        fatTitleLbl.setText("Fat");
+
+        fatValueLbl.setFont(new java.awt.Font("SansSerif", 1, 20)); // NOI18N
+        fatValueLbl.setForeground(new java.awt.Color(255, 255, 255));
+        fatValueLbl.setText("62 / 80 g");
+
+        fatProgressBar.setBackground(new java.awt.Color(49, 74, 80));
+        fatProgressBar.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
+        fatProgressBar.setForeground(new java.awt.Color(244, 197, 66));
+        fatProgressBar.setValue(78);
+        fatProgressBar.setBorderPainted(false);
+
         javax.swing.GroupLayout fatCardPnlLayout = new javax.swing.GroupLayout(fatCardPnl);
         fatCardPnl.setLayout(fatCardPnlLayout);
         fatCardPnlLayout.setHorizontalGroup(
             fatCardPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 220, Short.MAX_VALUE)
+            .addGroup(fatCardPnlLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(fatCardPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(fatTitleLbl)
+                    .addComponent(fatValueLbl))
+                .addContainerGap(117, Short.MAX_VALUE))
+            .addGroup(fatCardPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(fatCardPnlLayout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(fatProgressBar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addContainerGap()))
         );
         fatCardPnlLayout.setVerticalGroup(
             fatCardPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
+            .addGroup(fatCardPnlLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(fatTitleLbl)
+                .addGap(18, 18, 18)
+                .addComponent(fatValueLbl)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(fatCardPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(fatCardPnlLayout.createSequentialGroup()
+                    .addGap(73, 73, 73)
+                    .addComponent(fatProgressBar, javax.swing.GroupLayout.PREFERRED_SIZE, 6, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(21, Short.MAX_VALUE)))
         );
 
         javax.swing.GroupLayout nutritionPnlLayout = new javax.swing.GroupLayout(nutritionPnl);
@@ -184,13 +342,144 @@ public class DailyDiaryGUI extends javax.swing.JPanel {
         nutritionPnlLayout.setVerticalGroup(
             nutritionPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(nutritionPnlLayout.createSequentialGroup()
-                .addGap(15, 15, 15)
-                .addGroup(nutritionPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(fatCardPnl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(proteinCardPnl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(caloriesCardPnl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(carbsCardPnl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(10, Short.MAX_VALUE))
+                .addContainerGap()
+                .addGroup(nutritionPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(carbsCardPnl, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(proteinCardPnl, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(caloriesCardPnl, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(fatCardPnl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        mealsPnl.setBackground(new java.awt.Color(18, 32, 48));
+        mealsPnl.setPreferredSize(new java.awt.Dimension(850, 350));
+
+        mealsTabPnl.setBackground(new java.awt.Color(18, 32, 48));
+
+        mealsTab.setBackground(new java.awt.Color(18, 31, 46));
+        mealsTab.setFont(new java.awt.Font("SansSerif", 0, 13)); // NOI18N
+        mealsTab.setForeground(new java.awt.Color(230, 238, 246));
+        mealsTab.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {"Breakfast", "Oats, Banana, Protein Shake", "1 portion",  new Integer(520), "P: 35g C: 70g F: 15g", "Edit / Delete"},
+                {"Lunch", "Chicken, Rice, Broccoli", "1 portion",  new Integer(650), "P: 45g C: 80g F: 18g", "Edit / Delete"},
+                {"Dinner", "Salmon, Sweet Potato, Greens", "1 portion",  new Integer(680), "P: 40g C: 60g F: 20g", "Edit / Delete"},
+                {"Snacks", "Greek Yoghurt, Nuts", "1 portion",  new Integer(220), "P: 15g C: 25g F: 10g", "Edit / Delete"}
+            },
+            new String [] {
+                "Time", "Food Item", "Quantity", "Calories", "Macros", "Actions"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.Object.class, java.lang.Object.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        mealsTab.setGridColor(new java.awt.Color(38, 59, 78));
+        mealsTab.setRowHeight(55);
+        mealsTab.setSelectionBackground(new java.awt.Color(35, 119, 220));
+        mealsTab.setSelectionForeground(new java.awt.Color(255, 255, 255));
+        mealsTab.setShowHorizontalLines(true);
+        mealsScrollPnl.setViewportView(mealsTab);
+        if (mealsTab.getColumnModel().getColumnCount() > 0) {
+            mealsTab.getColumnModel().getColumn(0).setResizable(false);
+            mealsTab.getColumnModel().getColumn(0).setPreferredWidth(140);
+            mealsTab.getColumnModel().getColumn(1).setResizable(false);
+            mealsTab.getColumnModel().getColumn(1).setPreferredWidth(250);
+            mealsTab.getColumnModel().getColumn(2).setResizable(false);
+            mealsTab.getColumnModel().getColumn(2).setPreferredWidth(130);
+            mealsTab.getColumnModel().getColumn(3).setResizable(false);
+            mealsTab.getColumnModel().getColumn(3).setPreferredWidth(120);
+            mealsTab.getColumnModel().getColumn(4).setResizable(false);
+            mealsTab.getColumnModel().getColumn(4).setPreferredWidth(230);
+            mealsTab.getColumnModel().getColumn(5).setResizable(false);
+            mealsTab.getColumnModel().getColumn(5).setPreferredWidth(160);
+        }
+
+        addMealBtn.setBackground(new java.awt.Color(35, 119, 220));
+        addMealBtn.setFont(new java.awt.Font("SansSerif", 1, 13)); // NOI18N
+        addMealBtn.setForeground(new java.awt.Color(255, 255, 255));
+        addMealBtn.setText("+ Add Meal");
+        addMealBtn.addActionListener(this::addMealBtnActionPerformed);
+
+        javax.swing.GroupLayout mealsTabPnlLayout = new javax.swing.GroupLayout(mealsTabPnl);
+        mealsTabPnl.setLayout(mealsTabPnlLayout);
+        mealsTabPnlLayout.setHorizontalGroup(
+            mealsTabPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(mealsTabPnlLayout.createSequentialGroup()
+                .addComponent(mealsScrollPnl, javax.swing.GroupLayout.DEFAULT_SIZE, 719, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(addMealBtn))
+        );
+        mealsTabPnlLayout.setVerticalGroup(
+            mealsTabPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(mealsTabPnlLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(mealsTabPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(mealsTabPnlLayout.createSequentialGroup()
+                        .addComponent(addMealBtn)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(mealsScrollPnl, javax.swing.GroupLayout.DEFAULT_SIZE, 324, Short.MAX_VALUE))
+                .addContainerGap())
+        );
+
+        mealsTabPn.addTab("Meals", mealsTabPnl);
+
+        nutritionTabPnl.setBackground(new java.awt.Color(18, 32, 48));
+
+        javax.swing.GroupLayout nutritionTabPnlLayout = new javax.swing.GroupLayout(nutritionTabPnl);
+        nutritionTabPnl.setLayout(nutritionTabPnlLayout);
+        nutritionTabPnlLayout.setHorizontalGroup(
+            nutritionTabPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 833, Short.MAX_VALUE)
+        );
+        nutritionTabPnlLayout.setVerticalGroup(
+            nutritionTabPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 336, Short.MAX_VALUE)
+        );
+
+        mealsTabPn.addTab("Nutrition", nutritionTabPnl);
+
+        goalsTabPnl.setBackground(new java.awt.Color(18, 32, 48));
+
+        javax.swing.GroupLayout goalsTabPnlLayout = new javax.swing.GroupLayout(goalsTabPnl);
+        goalsTabPnl.setLayout(goalsTabPnlLayout);
+        goalsTabPnlLayout.setHorizontalGroup(
+            goalsTabPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 833, Short.MAX_VALUE)
+        );
+        goalsTabPnlLayout.setVerticalGroup(
+            goalsTabPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 336, Short.MAX_VALUE)
+        );
+
+        mealsTabPn.addTab("Goals", goalsTabPnl);
+
+        javax.swing.GroupLayout mealsPnlLayout = new javax.swing.GroupLayout(mealsPnl);
+        mealsPnl.setLayout(mealsPnlLayout);
+        mealsPnlLayout.setHorizontalGroup(
+            mealsPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(mealsPnlLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(mealsTabPn)
+                .addGap(149, 149, 149))
+        );
+        mealsPnlLayout.setVerticalGroup(
+            mealsPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(mealsPnlLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(mealsTabPn)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -202,29 +491,61 @@ public class DailyDiaryGUI extends javax.swing.JPanel {
                     .addComponent(headerPnl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(nutritionPnl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(mealsPnl, javax.swing.GroupLayout.DEFAULT_SIZE, 988, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(headerPnl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(nutritionPnl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 519, Short.MAX_VALUE))
+                .addComponent(nutritionPnl, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(mealsPnl, javax.swing.GroupLayout.PREFERRED_SIZE, 383, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 140, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void addMealBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addMealBtnActionPerformed
+        AddMealGUI addMealWindow = new AddMealGUI();
+        addMealWindow.setLocationRelativeTo(this);
+        addMealWindow.setVisible(true);        // TODO add your handling code here:
+    }//GEN-LAST:event_addMealBtnActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton addMealBtn;
     private javax.swing.JPanel caloriesCardPnl;
+    private javax.swing.JProgressBar caloriesProgressBar;
+    private javax.swing.JLabel caloriesTitleLbl;
+    private javax.swing.JLabel caloriesValueLbl;
     private javax.swing.JPanel carbsCardPnl;
+    private javax.swing.JProgressBar carbsProgressBar;
+    private javax.swing.JLabel carbsTitleLbl;
+    private javax.swing.JLabel carbsValueLbl;
     private javax.swing.JLabel dailyDiaryDescLbl;
     private javax.swing.JLabel dailyDiaryTitleLbl;
     private javax.swing.JButton dateBtn;
     private javax.swing.JPanel fatCardPnl;
+    private javax.swing.JProgressBar fatProgressBar;
+    private javax.swing.JLabel fatTitleLbl;
+    private javax.swing.JLabel fatValueLbl;
+    private javax.swing.JPanel goalsTabPnl;
     private javax.swing.JPanel headerPnl;
+    private javax.swing.JPanel mealsPnl;
+    private javax.swing.JScrollPane mealsScrollPnl;
+    private javax.swing.JTable mealsTab;
+    private javax.swing.JTabbedPane mealsTabPn;
+    private javax.swing.JPanel mealsTabPnl;
     private javax.swing.JButton nextDateBtn;
     private javax.swing.JPanel nutritionPnl;
+    private javax.swing.JPanel nutritionTabPnl;
     private javax.swing.JButton previousDateBtn;
     private javax.swing.JPanel proteinCardPnl;
+    private javax.swing.JProgressBar proteinProgressBar;
+    private javax.swing.JLabel proteinTitleLbl;
+    private javax.swing.JLabel proteinValueLbl;
     // End of variables declaration//GEN-END:variables
 }
