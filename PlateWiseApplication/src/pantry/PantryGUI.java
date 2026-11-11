@@ -37,6 +37,68 @@ public class PantryGUI extends javax.swing.JPanel {
         expiringPnl = new javax.swing.JPanel();
         expiringValueLbl = new javax.swing.JLabel();
         expiringTitleLbl = new javax.swing.JLabel();
+        pantryTabbedPn = new javax.swing.JTabbedPane();
+        inventoryPnl = new javax.swing.JPanel();
+        searchTf = new javax.swing.JTextField();
+        searchBtn = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        inventoryTbl = new javax.swing.JTable();
+        removeItemBtn = new javax.swing.JButton();
+        updateQuantityBtn = new javax.swing.JButton();
+        expiringItemsBtn = new javax.swing.JButton();
+        addItemPnl = new javax.swing.JPanel();
+        foodNameRowPnl = new javax.swing.JPanel();
+        foodNameLbl = new javax.swing.JLabel();
+        foodNameTf = new javax.swing.JTextField();
+        storageAdviceRowPnl = new javax.swing.JPanel();
+        storageAdviceLbl = new javax.swing.JLabel();
+        storageAdviceTf = new javax.swing.JTextField();
+        itemTypeRowPnl = new javax.swing.JPanel();
+        itemTypeLbl = new javax.swing.JLabel();
+        itemTypeCb = new javax.swing.JComboBox<>();
+        categoryRowPnl = new javax.swing.JPanel();
+        categoryLbl = new javax.swing.JLabel();
+        categoryTf = new javax.swing.JTextField();
+        quantityRowPnl = new javax.swing.JPanel();
+        quantityLbl = new javax.swing.JLabel();
+        quantityTf = new javax.swing.JTextField();
+        unitRowPnl = new javax.swing.JPanel();
+        unitLbl = new javax.swing.JLabel();
+        unitCb = new javax.swing.JComboBox<>();
+        expiryDateRowPnl = new javax.swing.JPanel();
+        expiryDateLbl = new javax.swing.JLabel();
+        expiryDateTf = new javax.swing.JTextField();
+        saveItemBtn = new javax.swing.JButton();
+        clearBtn = new javax.swing.JButton();
+        editItemPnl = new javax.swing.JPanel();
+        quantityRowPnl1 = new javax.swing.JPanel();
+        quantityLbl1 = new javax.swing.JLabel();
+        quantityTf1 = new javax.swing.JTextField();
+        foodNameRowPnl1 = new javax.swing.JPanel();
+        foodNameLbl1 = new javax.swing.JLabel();
+        foodNameTf1 = new javax.swing.JTextField();
+        unitRowPnl1 = new javax.swing.JPanel();
+        unitLbl1 = new javax.swing.JLabel();
+        unitCb1 = new javax.swing.JComboBox<>();
+        expiryDateRowPnl1 = new javax.swing.JPanel();
+        expiryDateLbl1 = new javax.swing.JLabel();
+        expiryDateTf1 = new javax.swing.JTextField();
+        itemTypeRowPnl1 = new javax.swing.JPanel();
+        itemTypeLbl1 = new javax.swing.JLabel();
+        itemTypeCb1 = new javax.swing.JComboBox<>();
+        storageAdviceRowPnl1 = new javax.swing.JPanel();
+        storageAdviceLbl1 = new javax.swing.JLabel();
+        storageAdviceTf1 = new javax.swing.JTextField();
+        categoryRowPnl7 = new javax.swing.JPanel();
+        categoryLbl7 = new javax.swing.JLabel();
+        categoryTf7 = new javax.swing.JTextField();
+        selectItemRowPnl = new javax.swing.JPanel();
+        selectItemLbl = new javax.swing.JLabel();
+        selectItemCb = new javax.swing.JComboBox<>();
+        jPanel1 = new javax.swing.JPanel();
+        updateItemBtn = new javax.swing.JButton();
+        clearEditBtn = new javax.swing.JButton();
+        deleteItemBtn = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(18, 27, 40));
         setPreferredSize(new java.awt.Dimension(1000, 750));
@@ -134,6 +196,594 @@ public class PantryGUI extends javax.swing.JPanel {
                 .addContainerGap(25, Short.MAX_VALUE))
         );
 
+        searchTf.setText("Search pantry items...");
+        searchTf.addActionListener(this::searchTfActionPerformed);
+
+        searchBtn.setText("Search");
+        searchBtn.addActionListener(this::searchBtnActionPerformed);
+
+        inventoryTbl.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
+            },
+            new String [] {
+                "Food Name", "Quantity", "Unit", "Expiry Date", "Type"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        inventoryTbl.setColumnSelectionAllowed(true);
+        jScrollPane1.setViewportView(inventoryTbl);
+        inventoryTbl.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+
+        removeItemBtn.setText("Remove Item");
+
+        updateQuantityBtn.setText("Update Quantity");
+
+        expiringItemsBtn.setText("Show Expiring Items");
+
+        javax.swing.GroupLayout inventoryPnlLayout = new javax.swing.GroupLayout(inventoryPnl);
+        inventoryPnl.setLayout(inventoryPnlLayout);
+        inventoryPnlLayout.setHorizontalGroup(
+            inventoryPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(inventoryPnlLayout.createSequentialGroup()
+                .addGap(24, 24, 24)
+                .addGroup(inventoryPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(inventoryPnlLayout.createSequentialGroup()
+                        .addComponent(removeItemBtn)
+                        .addGap(18, 18, 18)
+                        .addComponent(updateQuantityBtn)
+                        .addGap(18, 18, 18)
+                        .addComponent(expiringItemsBtn)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(inventoryPnlLayout.createSequentialGroup()
+                        .addGroup(inventoryPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(inventoryPnlLayout.createSequentialGroup()
+                                .addComponent(searchTf, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(241, 241, 241)
+                                .addComponent(searchBtn))
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+        );
+        inventoryPnlLayout.setVerticalGroup(
+            inventoryPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(inventoryPnlLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(inventoryPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(searchBtn)
+                    .addComponent(searchTf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(inventoryPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(removeItemBtn)
+                    .addComponent(updateQuantityBtn)
+                    .addComponent(expiringItemsBtn))
+                .addContainerGap())
+        );
+
+        pantryTabbedPn.addTab("Inventory", inventoryPnl);
+
+        foodNameLbl.setText("Food Name:");
+
+        foodNameTf.setText("e.g. Chicken, rice, milk");
+
+        javax.swing.GroupLayout foodNameRowPnlLayout = new javax.swing.GroupLayout(foodNameRowPnl);
+        foodNameRowPnl.setLayout(foodNameRowPnlLayout);
+        foodNameRowPnlLayout.setHorizontalGroup(
+            foodNameRowPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(foodNameRowPnlLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(foodNameLbl, javax.swing.GroupLayout.DEFAULT_SIZE, 96, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(foodNameTf, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(37, 37, 37))
+        );
+        foodNameRowPnlLayout.setVerticalGroup(
+            foodNameRowPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(foodNameRowPnlLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(foodNameRowPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(foodNameLbl)
+                    .addComponent(foodNameTf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(10, Short.MAX_VALUE))
+        );
+
+        storageAdviceLbl.setText("Storage Advice:");
+
+        storageAdviceTf.setText("e.g Keep refridgerated");
+
+        javax.swing.GroupLayout storageAdviceRowPnlLayout = new javax.swing.GroupLayout(storageAdviceRowPnl);
+        storageAdviceRowPnl.setLayout(storageAdviceRowPnlLayout);
+        storageAdviceRowPnlLayout.setHorizontalGroup(
+            storageAdviceRowPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(storageAdviceRowPnlLayout.createSequentialGroup()
+                .addComponent(storageAdviceLbl)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(storageAdviceTf, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+        storageAdviceRowPnlLayout.setVerticalGroup(
+            storageAdviceRowPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(storageAdviceRowPnlLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(storageAdviceRowPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(storageAdviceLbl)
+                    .addComponent(storageAdviceTf, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        itemTypeLbl.setText("Item Type:");
+
+        itemTypeCb.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1. Select Item Type", "2. Perishable", "3. Non-Perishable" }));
+
+        javax.swing.GroupLayout itemTypeRowPnlLayout = new javax.swing.GroupLayout(itemTypeRowPnl);
+        itemTypeRowPnl.setLayout(itemTypeRowPnlLayout);
+        itemTypeRowPnlLayout.setHorizontalGroup(
+            itemTypeRowPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(itemTypeRowPnlLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(itemTypeLbl)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(itemTypeCb, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        itemTypeRowPnlLayout.setVerticalGroup(
+            itemTypeRowPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(itemTypeRowPnlLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(itemTypeRowPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(itemTypeLbl)
+                    .addComponent(itemTypeCb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        categoryLbl.setText("Category:");
+
+        categoryTf.setText("e.g. Canned goods, grains");
+        categoryTf.addActionListener(this::categoryTfActionPerformed);
+
+        javax.swing.GroupLayout categoryRowPnlLayout = new javax.swing.GroupLayout(categoryRowPnl);
+        categoryRowPnl.setLayout(categoryRowPnlLayout);
+        categoryRowPnlLayout.setHorizontalGroup(
+            categoryRowPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(categoryRowPnlLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(categoryLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(categoryTf, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        categoryRowPnlLayout.setVerticalGroup(
+            categoryRowPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(categoryRowPnlLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(categoryRowPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(categoryLbl)
+                    .addComponent(categoryTf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        quantityLbl.setText("Quantity:");
+
+        quantityTf.setText("e.g. 2");
+        quantityTf.setPreferredSize(new java.awt.Dimension(134, 22));
+        quantityTf.addActionListener(this::quantityTfActionPerformed);
+
+        javax.swing.GroupLayout quantityRowPnlLayout = new javax.swing.GroupLayout(quantityRowPnl);
+        quantityRowPnl.setLayout(quantityRowPnlLayout);
+        quantityRowPnlLayout.setHorizontalGroup(
+            quantityRowPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(quantityRowPnlLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(quantityLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(quantityTf, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(19, Short.MAX_VALUE))
+        );
+        quantityRowPnlLayout.setVerticalGroup(
+            quantityRowPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(quantityRowPnlLayout.createSequentialGroup()
+                .addGroup(quantityRowPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(quantityLbl)
+                    .addComponent(quantityTf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(3, 3, 3))
+        );
+
+        unitLbl.setText("Unit:");
+
+        unitCb.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1. Select Unit", "2. Kg", "3. Grams", "4. Litres", "5. Millilitres", "6. Units", "7. Other" }));
+        unitCb.setPreferredSize(new java.awt.Dimension(134, 22));
+        unitCb.addActionListener(this::unitCbActionPerformed);
+
+        javax.swing.GroupLayout unitRowPnlLayout = new javax.swing.GroupLayout(unitRowPnl);
+        unitRowPnl.setLayout(unitRowPnlLayout);
+        unitRowPnlLayout.setHorizontalGroup(
+            unitRowPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(unitRowPnlLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(unitLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(unitCb, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        unitRowPnlLayout.setVerticalGroup(
+            unitRowPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+            .addGroup(unitRowPnlLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(unitRowPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(unitLbl)
+                    .addComponent(unitCb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(50, 50, 50))
+        );
+
+        expiryDateLbl.setText("Expiry Date:");
+
+        expiryDateTf.setText("DD/MM/YYYY");
+        expiryDateTf.setPreferredSize(new java.awt.Dimension(134, 22));
+
+        javax.swing.GroupLayout expiryDateRowPnlLayout = new javax.swing.GroupLayout(expiryDateRowPnl);
+        expiryDateRowPnl.setLayout(expiryDateRowPnlLayout);
+        expiryDateRowPnlLayout.setHorizontalGroup(
+            expiryDateRowPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(expiryDateRowPnlLayout.createSequentialGroup()
+                .addComponent(expiryDateLbl)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(expiryDateTf, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        expiryDateRowPnlLayout.setVerticalGroup(
+            expiryDateRowPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(expiryDateRowPnlLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(expiryDateRowPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(expiryDateLbl)
+                    .addComponent(expiryDateTf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 4, Short.MAX_VALUE))
+        );
+
+        saveItemBtn.setText("Save");
+
+        clearBtn.setText("Clear");
+
+        javax.swing.GroupLayout addItemPnlLayout = new javax.swing.GroupLayout(addItemPnl);
+        addItemPnl.setLayout(addItemPnlLayout);
+        addItemPnlLayout.setHorizontalGroup(
+            addItemPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(addItemPnlLayout.createSequentialGroup()
+                .addContainerGap(141, Short.MAX_VALUE)
+                .addGroup(addItemPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(addItemPnlLayout.createSequentialGroup()
+                        .addGap(82, 82, 82)
+                        .addComponent(saveItemBtn)
+                        .addGap(64, 64, 64)
+                        .addComponent(clearBtn))
+                    .addGroup(addItemPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(foodNameRowPnl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(quantityRowPnl, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(categoryRowPnl, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(storageAdviceRowPnl, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(itemTypeRowPnl, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(expiryDateRowPnl, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(unitRowPnl, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap(208, Short.MAX_VALUE))
+        );
+        addItemPnlLayout.setVerticalGroup(
+            addItemPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(addItemPnlLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(foodNameRowPnl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(quantityRowPnl, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(unitRowPnl, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(expiryDateRowPnl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(itemTypeRowPnl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(storageAdviceRowPnl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(categoryRowPnl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(addItemPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(saveItemBtn)
+                    .addComponent(clearBtn))
+                .addContainerGap(124, Short.MAX_VALUE))
+        );
+
+        pantryTabbedPn.addTab("Add Item", addItemPnl);
+
+        quantityLbl1.setText("Quantity:");
+
+        quantityTf1.setText("e.g. 2");
+        quantityTf1.setPreferredSize(new java.awt.Dimension(134, 22));
+        quantityTf1.addActionListener(this::quantityTf1ActionPerformed);
+
+        javax.swing.GroupLayout quantityRowPnl1Layout = new javax.swing.GroupLayout(quantityRowPnl1);
+        quantityRowPnl1.setLayout(quantityRowPnl1Layout);
+        quantityRowPnl1Layout.setHorizontalGroup(
+            quantityRowPnl1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(quantityRowPnl1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(quantityLbl1, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(quantityTf1, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(19, Short.MAX_VALUE))
+        );
+        quantityRowPnl1Layout.setVerticalGroup(
+            quantityRowPnl1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(quantityRowPnl1Layout.createSequentialGroup()
+                .addGroup(quantityRowPnl1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(quantityLbl1)
+                    .addComponent(quantityTf1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(3, 3, 3))
+        );
+
+        foodNameLbl1.setText("Food Name:");
+
+        foodNameTf1.setText("e.g. Chicken, rice, milk");
+
+        javax.swing.GroupLayout foodNameRowPnl1Layout = new javax.swing.GroupLayout(foodNameRowPnl1);
+        foodNameRowPnl1.setLayout(foodNameRowPnl1Layout);
+        foodNameRowPnl1Layout.setHorizontalGroup(
+            foodNameRowPnl1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(foodNameRowPnl1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(foodNameLbl1, javax.swing.GroupLayout.DEFAULT_SIZE, 96, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(foodNameTf1, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(37, 37, 37))
+        );
+        foodNameRowPnl1Layout.setVerticalGroup(
+            foodNameRowPnl1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(foodNameRowPnl1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(foodNameRowPnl1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(foodNameLbl1)
+                    .addComponent(foodNameTf1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(10, Short.MAX_VALUE))
+        );
+
+        unitLbl1.setText("Unit:");
+
+        unitCb1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1. Select Unit", "2. Kg", "3. Grams", "4. Litres", "5. Millilitres", "6. Units", "7. Other" }));
+        unitCb1.setPreferredSize(new java.awt.Dimension(134, 22));
+        unitCb1.addActionListener(this::unitCb1ActionPerformed);
+
+        javax.swing.GroupLayout unitRowPnl1Layout = new javax.swing.GroupLayout(unitRowPnl1);
+        unitRowPnl1.setLayout(unitRowPnl1Layout);
+        unitRowPnl1Layout.setHorizontalGroup(
+            unitRowPnl1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(unitRowPnl1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(unitLbl1, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(unitCb1, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        unitRowPnl1Layout.setVerticalGroup(
+            unitRowPnl1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, unitRowPnl1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(unitRowPnl1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(unitLbl1)
+                    .addComponent(unitCb1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(50, 50, 50))
+        );
+
+        expiryDateLbl1.setText("Expiry Date:");
+
+        expiryDateTf1.setText("DD/MM/YYYY");
+        expiryDateTf1.setPreferredSize(new java.awt.Dimension(134, 22));
+
+        javax.swing.GroupLayout expiryDateRowPnl1Layout = new javax.swing.GroupLayout(expiryDateRowPnl1);
+        expiryDateRowPnl1.setLayout(expiryDateRowPnl1Layout);
+        expiryDateRowPnl1Layout.setHorizontalGroup(
+            expiryDateRowPnl1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(expiryDateRowPnl1Layout.createSequentialGroup()
+                .addComponent(expiryDateLbl1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(expiryDateTf1, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        expiryDateRowPnl1Layout.setVerticalGroup(
+            expiryDateRowPnl1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(expiryDateRowPnl1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(expiryDateRowPnl1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(expiryDateLbl1)
+                    .addComponent(expiryDateTf1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 4, Short.MAX_VALUE))
+        );
+
+        itemTypeLbl1.setText("Item Type:");
+
+        itemTypeCb1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1. Select Item Type", "2. Perishable", "3. Non-Perishable" }));
+
+        javax.swing.GroupLayout itemTypeRowPnl1Layout = new javax.swing.GroupLayout(itemTypeRowPnl1);
+        itemTypeRowPnl1.setLayout(itemTypeRowPnl1Layout);
+        itemTypeRowPnl1Layout.setHorizontalGroup(
+            itemTypeRowPnl1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(itemTypeRowPnl1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(itemTypeLbl1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(itemTypeCb1, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        itemTypeRowPnl1Layout.setVerticalGroup(
+            itemTypeRowPnl1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(itemTypeRowPnl1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(itemTypeRowPnl1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(itemTypeLbl1)
+                    .addComponent(itemTypeCb1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        storageAdviceLbl1.setText("Storage Advice:");
+
+        storageAdviceTf1.setText("e.g Keep refridgerated");
+
+        javax.swing.GroupLayout storageAdviceRowPnl1Layout = new javax.swing.GroupLayout(storageAdviceRowPnl1);
+        storageAdviceRowPnl1.setLayout(storageAdviceRowPnl1Layout);
+        storageAdviceRowPnl1Layout.setHorizontalGroup(
+            storageAdviceRowPnl1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(storageAdviceRowPnl1Layout.createSequentialGroup()
+                .addComponent(storageAdviceLbl1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(storageAdviceTf1, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+        storageAdviceRowPnl1Layout.setVerticalGroup(
+            storageAdviceRowPnl1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(storageAdviceRowPnl1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(storageAdviceRowPnl1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(storageAdviceLbl1)
+                    .addComponent(storageAdviceTf1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        categoryLbl7.setText("Category:");
+
+        categoryTf7.setText("e.g. Canned goods, grains");
+        categoryTf7.addActionListener(this::categoryTf7ActionPerformed);
+
+        javax.swing.GroupLayout categoryRowPnl7Layout = new javax.swing.GroupLayout(categoryRowPnl7);
+        categoryRowPnl7.setLayout(categoryRowPnl7Layout);
+        categoryRowPnl7Layout.setHorizontalGroup(
+            categoryRowPnl7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(categoryRowPnl7Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(categoryLbl7, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(categoryTf7, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        categoryRowPnl7Layout.setVerticalGroup(
+            categoryRowPnl7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(categoryRowPnl7Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(categoryRowPnl7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(categoryLbl7)
+                    .addComponent(categoryTf7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        selectItemLbl.setText("Select Item:");
+
+        selectItemCb.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select an item..." }));
+
+        javax.swing.GroupLayout selectItemRowPnlLayout = new javax.swing.GroupLayout(selectItemRowPnl);
+        selectItemRowPnl.setLayout(selectItemRowPnlLayout);
+        selectItemRowPnlLayout.setHorizontalGroup(
+            selectItemRowPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(selectItemRowPnlLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(selectItemLbl)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(selectItemCb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        selectItemRowPnlLayout.setVerticalGroup(
+            selectItemRowPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(selectItemRowPnlLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(selectItemRowPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(selectItemLbl)
+                    .addComponent(selectItemCb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        updateItemBtn.setText("Update Item");
+
+        clearEditBtn.setText("Clear");
+
+        deleteItemBtn.setText("Delete Item");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(updateItemBtn)
+                .addGap(12, 12, 12)
+                .addComponent(clearEditBtn)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(deleteItemBtn)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(updateItemBtn)
+                    .addComponent(clearEditBtn)
+                    .addComponent(deleteItemBtn))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout editItemPnlLayout = new javax.swing.GroupLayout(editItemPnl);
+        editItemPnl.setLayout(editItemPnlLayout);
+        editItemPnlLayout.setHorizontalGroup(
+            editItemPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(editItemPnlLayout.createSequentialGroup()
+                .addGroup(editItemPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(editItemPnlLayout.createSequentialGroup()
+                        .addGap(136, 136, 136)
+                        .addGroup(editItemPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(editItemPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(foodNameRowPnl1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(quantityRowPnl1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(categoryRowPnl7, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(storageAdviceRowPnl1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(itemTypeRowPnl1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(expiryDateRowPnl1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(unitRowPnl1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(selectItemRowPnl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(editItemPnlLayout.createSequentialGroup()
+                        .addGap(151, 151, 151)
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(213, Short.MAX_VALUE))
+        );
+        editItemPnlLayout.setVerticalGroup(
+            editItemPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(editItemPnlLayout.createSequentialGroup()
+                .addComponent(selectItemRowPnl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(foodNameRowPnl1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(quantityRowPnl1, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(unitRowPnl1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(12, 12, 12)
+                .addComponent(expiryDateRowPnl1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(itemTypeRowPnl1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(storageAdviceRowPnl1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(categoryRowPnl7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(72, Short.MAX_VALUE))
+        );
+
+        pantryTabbedPn.addTab("Edit item", editItemPnl);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -141,50 +791,170 @@ public class PantryGUI extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(27, 27, 27)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(pantryDescLbl)
-                            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(totalItemsPnl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 64, Short.MAX_VALUE)
-                            .addComponent(perishablePnl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(62, 62, 62)
-                            .addComponent(expiringPnl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(pantryDescLbl)
+                    .addComponent(pantryTitleLbl)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(pantryTitleLbl)
-                        .addContainerGap(898, Short.MAX_VALUE))))
+                        .addComponent(totalItemsPnl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(64, 64, 64)
+                        .addComponent(perishablePnl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(62, 62, 62)
+                        .addComponent(expiringPnl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(pantryTabbedPn, javax.swing.GroupLayout.PREFERRED_SIZE, 700, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(217, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(12, 12, 12)
                 .addComponent(pantryTitleLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(pantryDescLbl)
                 .addGap(17, 17, 17)
+                .addComponent(pantryDescLbl)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(totalItemsPnl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(perishablePnl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(expiringPnl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(expiringPnl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(35, 35, 35)
+                .addComponent(pantryTabbedPn, javax.swing.GroupLayout.PREFERRED_SIZE, 458, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         getAccessibleContext().setAccessibleName("");
     }// </editor-fold>//GEN-END:initComponents
 
+    private void searchTfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchTfActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_searchTfActionPerformed
+
+    private void searchBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchBtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_searchBtnActionPerformed
+
+    private void categoryTfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_categoryTfActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_categoryTfActionPerformed
+
+    private void quantityTfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_quantityTfActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_quantityTfActionPerformed
+
+    private void unitCbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_unitCbActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_unitCbActionPerformed
+
+    private void quantityTf1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_quantityTf1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_quantityTf1ActionPerformed
+
+    private void unitCb1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_unitCb1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_unitCb1ActionPerformed
+
+    private void categoryTf7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_categoryTf7ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_categoryTf7ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel addItemPnl;
+    private javax.swing.JLabel categoryLbl;
+    private javax.swing.JLabel categoryLbl1;
+    private javax.swing.JLabel categoryLbl2;
+    private javax.swing.JLabel categoryLbl3;
+    private javax.swing.JLabel categoryLbl4;
+    private javax.swing.JLabel categoryLbl5;
+    private javax.swing.JLabel categoryLbl6;
+    private javax.swing.JLabel categoryLbl7;
+    private javax.swing.JPanel categoryRowPnl;
+    private javax.swing.JPanel categoryRowPnl1;
+    private javax.swing.JPanel categoryRowPnl2;
+    private javax.swing.JPanel categoryRowPnl3;
+    private javax.swing.JPanel categoryRowPnl4;
+    private javax.swing.JPanel categoryRowPnl5;
+    private javax.swing.JPanel categoryRowPnl6;
+    private javax.swing.JPanel categoryRowPnl7;
+    private javax.swing.JTextField categoryTf;
+    private javax.swing.JTextField categoryTf1;
+    private javax.swing.JTextField categoryTf2;
+    private javax.swing.JTextField categoryTf3;
+    private javax.swing.JTextField categoryTf4;
+    private javax.swing.JTextField categoryTf5;
+    private javax.swing.JTextField categoryTf6;
+    private javax.swing.JTextField categoryTf7;
+    private javax.swing.JButton clearBtn;
+    private javax.swing.JButton clearEditBtn;
+    private javax.swing.JButton deleteItemBtn;
+    private javax.swing.JPanel editItemPnl;
+    private javax.swing.JButton expiringItemsBtn;
+    private javax.swing.JButton expiringItemsBtn1;
     private javax.swing.JPanel expiringPnl;
     private javax.swing.JLabel expiringTitleLbl;
     private javax.swing.JLabel expiringValueLbl;
+    private javax.swing.JLabel expiryDateLbl;
+    private javax.swing.JLabel expiryDateLbl1;
+    private javax.swing.JPanel expiryDateRowPnl;
+    private javax.swing.JPanel expiryDateRowPnl1;
+    private javax.swing.JTextField expiryDateTf;
+    private javax.swing.JTextField expiryDateTf1;
+    private javax.swing.JLabel foodNameLbl;
+    private javax.swing.JLabel foodNameLbl1;
+    private javax.swing.JPanel foodNameRowPnl;
+    private javax.swing.JPanel foodNameRowPnl1;
+    private javax.swing.JTextField foodNameTf;
+    private javax.swing.JTextField foodNameTf1;
+    private javax.swing.JPanel inventoryPnl;
+    private javax.swing.JPanel inventoryPnl1;
+    private javax.swing.JTable inventoryTbl;
+    private javax.swing.JTable inventoryTbl1;
+    private javax.swing.JComboBox<String> itemTypeCb;
+    private javax.swing.JComboBox<String> itemTypeCb1;
+    private javax.swing.JLabel itemTypeLbl;
+    private javax.swing.JLabel itemTypeLbl1;
+    private javax.swing.JPanel itemTypeRowPnl;
+    private javax.swing.JPanel itemTypeRowPnl1;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel pantryDescLbl;
+    private javax.swing.JTabbedPane pantryTabbedPn;
+    private javax.swing.JTabbedPane pantryTabbedPn1;
     private javax.swing.JLabel pantryTitleLbl;
     private javax.swing.JPanel perishablePnl;
     private javax.swing.JLabel perishableTitleLbl;
     private javax.swing.JLabel perishableValueLbl;
+    private javax.swing.JLabel quantityLbl;
+    private javax.swing.JLabel quantityLbl1;
+    private javax.swing.JPanel quantityRowPnl;
+    private javax.swing.JPanel quantityRowPnl1;
+    private javax.swing.JTextField quantityTf;
+    private javax.swing.JTextField quantityTf1;
+    private javax.swing.JButton removeItemBtn;
+    private javax.swing.JButton removeItemBtn1;
+    private javax.swing.JButton saveItemBtn;
+    private javax.swing.JButton searchBtn;
+    private javax.swing.JButton searchBtn1;
+    private javax.swing.JTextField searchTf;
+    private javax.swing.JTextField searchTf1;
+    private javax.swing.JComboBox<String> selectItemCb;
+    private javax.swing.JLabel selectItemLbl;
+    private javax.swing.JPanel selectItemRowPnl;
+    private javax.swing.JLabel storageAdviceLbl;
+    private javax.swing.JLabel storageAdviceLbl1;
+    private javax.swing.JPanel storageAdviceRowPnl;
+    private javax.swing.JPanel storageAdviceRowPnl1;
+    private javax.swing.JTextField storageAdviceTf;
+    private javax.swing.JTextField storageAdviceTf1;
     private javax.swing.JPanel totalItemsPnl;
     private javax.swing.JLabel totalItemsTitleLbl;
     private javax.swing.JLabel totalItemsValueLbl;
+    private javax.swing.JComboBox<String> unitCb;
+    private javax.swing.JComboBox<String> unitCb1;
+    private javax.swing.JLabel unitLbl;
+    private javax.swing.JLabel unitLbl1;
+    private javax.swing.JPanel unitRowPnl;
+    private javax.swing.JPanel unitRowPnl1;
+    private javax.swing.JButton updateItemBtn;
+    private javax.swing.JButton updateQuantityBtn;
+    private javax.swing.JButton updateQuantityBtn1;
     // End of variables declaration//GEN-END:variables
 }
