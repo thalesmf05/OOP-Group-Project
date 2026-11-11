@@ -224,6 +224,7 @@ public class PantryGUI extends javax.swing.JPanel {
         searchBtn.setText("Search");
         searchBtn.addActionListener(this::searchBtnActionPerformed);
 
+        inventoryTbl.setBackground(new java.awt.Color(23, 40, 59));
         inventoryTbl.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
         inventoryTbl.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
