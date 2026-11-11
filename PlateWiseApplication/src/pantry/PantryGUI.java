@@ -6,7 +6,7 @@ package pantry;
 
 /**
  *
- * @author mlz
+ * @author Merlin
  */
 public class PantryGUI extends javax.swing.JPanel {
 
@@ -14,7 +14,7 @@ public class PantryGUI extends javax.swing.JPanel {
      * Creates new form PantryGUI
      */
     public PantryGUI() {
-        initComponents();
+        initComponents();//initialises the gui components
     }
 
     /**
