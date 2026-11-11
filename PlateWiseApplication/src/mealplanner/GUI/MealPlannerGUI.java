@@ -34,81 +34,132 @@ public class MealPlannerGUI extends javax.swing.JPanel {
         mealNameLbl = new javax.swing.JLabel();
         timeLbl = new javax.swing.JLabel();
         typeLbl = new javax.swing.JLabel();
-        jPanel1 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        viewBtn = new javax.swing.JButton();
+        DeleteBtn = new javax.swing.JButton();
+        caloriesLbl = new javax.swing.JLabel();
+        proteinLbl = new javax.swing.JLabel();
+        carbsLbl = new javax.swing.JLabel();
+        fatLbl = new javax.swing.JLabel();
+        MealPnl1 = new javax.swing.JPanel();
+        mealNameLbl1 = new javax.swing.JLabel();
+        timeLbl1 = new javax.swing.JLabel();
+        typeLbl1 = new javax.swing.JLabel();
+        viewBtn1 = new javax.swing.JButton();
+        DeleteBtn1 = new javax.swing.JButton();
+        caloriesLbl1 = new javax.swing.JLabel();
+        proteinLbl1 = new javax.swing.JLabel();
+        carbsLbl1 = new javax.swing.JLabel();
+        fatLbl1 = new javax.swing.JLabel();
+        MealPnl2 = new javax.swing.JPanel();
+        mealNameLbl2 = new javax.swing.JLabel();
+        timeLbl2 = new javax.swing.JLabel();
+        typeLbl2 = new javax.swing.JLabel();
+        viewBtn2 = new javax.swing.JButton();
+        DeleteBtn2 = new javax.swing.JButton();
+        caloriesLbl2 = new javax.swing.JLabel();
+        proteinLbl2 = new javax.swing.JLabel();
+        carbsLbl2 = new javax.swing.JLabel();
+        fatLbl2 = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(0, 153, 204));
+        setBackground(new java.awt.Color(55, 76, 101));
         setPreferredSize(new java.awt.Dimension(1000, 750));
         setSize(new java.awt.Dimension(1000, 750));
 
-        titleLbl.setFont(new java.awt.Font("Helvetica Neue", 1, 24)); // NOI18N
+        titleLbl.setFont(new java.awt.Font("SansSerif", 1, 24)); // NOI18N
         titleLbl.setForeground(new java.awt.Color(255, 255, 255));
         titleLbl.setText("Meal Planner");
 
-        subTitleLbl.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
+        subTitleLbl.setFont(new java.awt.Font("SansSerif", 0, 16)); // NOI18N
         subTitleLbl.setForeground(new java.awt.Color(255, 255, 255));
-        subTitleLbl.setText("Discover, save and cook delicious meals");
+        subTitleLbl.setText("Discover, save and cook delicious recipes");
 
-        saveRecipesLbl.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
+        saveRecipesLbl.setFont(new java.awt.Font("SansSerif", 1, 20)); // NOI18N
         saveRecipesLbl.setForeground(new java.awt.Color(255, 255, 255));
         saveRecipesLbl.setText("Saved Recipes");
 
-        addRecipeBtn.setFont(new java.awt.Font("Helvetica Neue", 1, 15)); // NOI18N
+        addRecipeBtn.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
         addRecipeBtn.setText("+ Add Recipe");
+        addRecipeBtn.setMaximumSize(new java.awt.Dimension(120, 38));
+        addRecipeBtn.setMinimumSize(new java.awt.Dimension(120, 38));
+        addRecipeBtn.setPreferredSize(new java.awt.Dimension(120, 38));
+        addRecipeBtn.setSize(new java.awt.Dimension(120, 38));
         addRecipeBtn.addActionListener(this::addRecipeBtnActionPerformed);
 
-        mealNameLbl.setFont(new java.awt.Font("SansSerif", 1, 16)); // NOI18N
+        MealPnl.setBackground(new java.awt.Color(70, 93, 120));
+
+        mealNameLbl.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
+        mealNameLbl.setForeground(new java.awt.Color(255, 255, 255));
         mealNameLbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         mealNameLbl.setText("Spaghetti Bolognese");
 
+        timeLbl.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
+        timeLbl.setForeground(new java.awt.Color(255, 255, 255));
         timeLbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         timeLbl.setText("30 min");
 
+        typeLbl.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
+        typeLbl.setForeground(new java.awt.Color(255, 255, 255));
         typeLbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         typeLbl.setText("Dinner");
 
-        jButton1.setText("jButton1");
+        viewBtn.setFont(new java.awt.Font("SansSerif", 0, 10)); // NOI18N
+        viewBtn.setText("View");
 
-        jButton2.setText("jButton1");
+        DeleteBtn.setFont(new java.awt.Font("SansSerif", 0, 10)); // NOI18N
+        DeleteBtn.setText("Delete");
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton1))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
-        );
+        caloriesLbl.setFont(new java.awt.Font("SansSerif", 0, 10)); // NOI18N
+        caloriesLbl.setForeground(new java.awt.Color(255, 255, 255));
+        caloriesLbl.setText("Calories: 180kcal");
+
+        proteinLbl.setFont(new java.awt.Font("SansSerif", 0, 10)); // NOI18N
+        proteinLbl.setForeground(new java.awt.Color(255, 255, 255));
+        proteinLbl.setText("Protein: 56 g");
+
+        carbsLbl.setFont(new java.awt.Font("SansSerif", 0, 10)); // NOI18N
+        carbsLbl.setForeground(new java.awt.Color(255, 255, 255));
+        carbsLbl.setText("Carbs: 100 g");
+
+        fatLbl.setFont(new java.awt.Font("SansSerif", 0, 10)); // NOI18N
+        fatLbl.setForeground(new java.awt.Color(255, 255, 255));
+        fatLbl.setText("Fat: 35 g");
 
         javax.swing.GroupLayout MealPnlLayout = new javax.swing.GroupLayout(MealPnl);
         MealPnl.setLayout(MealPnlLayout);
         MealPnlLayout.setHorizontalGroup(
             MealPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MealPnlLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(MealPnlLayout.createSequentialGroup()
                 .addGroup(MealPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(mealNameLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(MealPnlLayout.createSequentialGroup()
-                        .addGap(17, 17, 17)
-                        .addGroup(MealPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(MealPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MealPnlLayout.createSequentialGroup()
+                                .addGap(64, 64, 64)
+                                .addGroup(MealPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(carbsLbl)
+                                    .addComponent(caloriesLbl)))
                             .addGroup(MealPnlLayout.createSequentialGroup()
-                                .addComponent(timeLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(typeLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap())
+                                .addGap(70, 70, 70)
+                                .addComponent(viewBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(8, 8, 8))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MealPnlLayout.createSequentialGroup()
+                        .addComponent(timeLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                .addGroup(MealPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(MealPnlLayout.createSequentialGroup()
+                        .addGroup(MealPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(fatLbl)
+                            .addComponent(proteinLbl)
+                            .addGroup(MealPnlLayout.createSequentialGroup()
+                                .addComponent(typeLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE)))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(MealPnlLayout.createSequentialGroup()
+                        .addComponent(DeleteBtn)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MealPnlLayout.createSequentialGroup()
+                .addContainerGap(45, Short.MAX_VALUE)
+                .addComponent(mealNameLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(35, 35, 35))
         );
         MealPnlLayout.setVerticalGroup(
             MealPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -119,9 +170,207 @@ public class MealPlannerGUI extends javax.swing.JPanel {
                 .addGroup(MealPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(timeLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(typeLbl))
+                .addGap(5, 5, 5)
+                .addGroup(MealPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(caloriesLbl)
+                    .addComponent(proteinLbl))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(MealPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(carbsLbl)
+                    .addComponent(fatLbl))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(21, Short.MAX_VALUE))
+                .addGroup(MealPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(viewBtn)
+                    .addComponent(DeleteBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(20, Short.MAX_VALUE))
+        );
+
+        MealPnl1.setBackground(new java.awt.Color(70, 93, 120));
+
+        mealNameLbl1.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
+        mealNameLbl1.setForeground(new java.awt.Color(255, 255, 255));
+        mealNameLbl1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        mealNameLbl1.setText("Strogonnof");
+
+        timeLbl1.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
+        timeLbl1.setForeground(new java.awt.Color(255, 255, 255));
+        timeLbl1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        timeLbl1.setText("40 min");
+
+        typeLbl1.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
+        typeLbl1.setForeground(new java.awt.Color(255, 255, 255));
+        typeLbl1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        typeLbl1.setText("Dinner");
+
+        viewBtn1.setFont(new java.awt.Font("SansSerif", 0, 10)); // NOI18N
+        viewBtn1.setText("View");
+
+        DeleteBtn1.setFont(new java.awt.Font("SansSerif", 0, 10)); // NOI18N
+        DeleteBtn1.setText("Delete");
+
+        caloriesLbl1.setFont(new java.awt.Font("SansSerif", 0, 10)); // NOI18N
+        caloriesLbl1.setForeground(new java.awt.Color(255, 255, 255));
+        caloriesLbl1.setText("Calories: 500kcal");
+
+        proteinLbl1.setFont(new java.awt.Font("SansSerif", 0, 10)); // NOI18N
+        proteinLbl1.setForeground(new java.awt.Color(255, 255, 255));
+        proteinLbl1.setText("Protein: 60 g");
+
+        carbsLbl1.setFont(new java.awt.Font("SansSerif", 0, 10)); // NOI18N
+        carbsLbl1.setForeground(new java.awt.Color(255, 255, 255));
+        carbsLbl1.setText("Carbs: 150 g");
+
+        fatLbl1.setFont(new java.awt.Font("SansSerif", 0, 10)); // NOI18N
+        fatLbl1.setForeground(new java.awt.Color(255, 255, 255));
+        fatLbl1.setText("Fat: 40 g");
+
+        javax.swing.GroupLayout MealPnl1Layout = new javax.swing.GroupLayout(MealPnl1);
+        MealPnl1.setLayout(MealPnl1Layout);
+        MealPnl1Layout.setHorizontalGroup(
+            MealPnl1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(MealPnl1Layout.createSequentialGroup()
+                .addGroup(MealPnl1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(MealPnl1Layout.createSequentialGroup()
+                        .addGroup(MealPnl1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MealPnl1Layout.createSequentialGroup()
+                                .addGap(64, 64, 64)
+                                .addGroup(MealPnl1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(carbsLbl1)
+                                    .addComponent(caloriesLbl1)))
+                            .addGroup(MealPnl1Layout.createSequentialGroup()
+                                .addGap(70, 70, 70)
+                                .addComponent(viewBtn1, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(8, 8, 8))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MealPnl1Layout.createSequentialGroup()
+                        .addComponent(timeLbl1, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                .addGroup(MealPnl1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(fatLbl1)
+                    .addComponent(proteinLbl1)
+                    .addComponent(typeLbl1, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(DeleteBtn1))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MealPnl1Layout.createSequentialGroup()
+                .addContainerGap(45, Short.MAX_VALUE)
+                .addComponent(mealNameLbl1, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(35, 35, 35))
+        );
+        MealPnl1Layout.setVerticalGroup(
+            MealPnl1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(MealPnl1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(mealNameLbl1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(MealPnl1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(timeLbl1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(typeLbl1))
+                .addGap(5, 5, 5)
+                .addGroup(MealPnl1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(caloriesLbl1)
+                    .addComponent(proteinLbl1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(MealPnl1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(carbsLbl1)
+                    .addComponent(fatLbl1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(MealPnl1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(viewBtn1)
+                    .addComponent(DeleteBtn1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(20, Short.MAX_VALUE))
+        );
+
+        MealPnl2.setBackground(new java.awt.Color(70, 93, 120));
+
+        mealNameLbl2.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
+        mealNameLbl2.setForeground(new java.awt.Color(255, 255, 255));
+        mealNameLbl2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        mealNameLbl2.setText("Toast and eggs");
+
+        timeLbl2.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
+        timeLbl2.setForeground(new java.awt.Color(255, 255, 255));
+        timeLbl2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        timeLbl2.setText("15 min");
+
+        typeLbl2.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
+        typeLbl2.setForeground(new java.awt.Color(255, 255, 255));
+        typeLbl2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        typeLbl2.setText("Breakfast");
+
+        viewBtn2.setFont(new java.awt.Font("SansSerif", 0, 10)); // NOI18N
+        viewBtn2.setText("View");
+
+        DeleteBtn2.setFont(new java.awt.Font("SansSerif", 0, 10)); // NOI18N
+        DeleteBtn2.setText("Delete");
+
+        caloriesLbl2.setFont(new java.awt.Font("SansSerif", 0, 10)); // NOI18N
+        caloriesLbl2.setForeground(new java.awt.Color(255, 255, 255));
+        caloriesLbl2.setText("Calories: 400kcal");
+
+        proteinLbl2.setFont(new java.awt.Font("SansSerif", 0, 10)); // NOI18N
+        proteinLbl2.setForeground(new java.awt.Color(255, 255, 255));
+        proteinLbl2.setText("Protein: 30 g");
+
+        carbsLbl2.setFont(new java.awt.Font("SansSerif", 0, 10)); // NOI18N
+        carbsLbl2.setForeground(new java.awt.Color(255, 255, 255));
+        carbsLbl2.setText("Carbs: 160 g");
+
+        fatLbl2.setFont(new java.awt.Font("SansSerif", 0, 10)); // NOI18N
+        fatLbl2.setForeground(new java.awt.Color(255, 255, 255));
+        fatLbl2.setText("Fat: 30 g");
+
+        javax.swing.GroupLayout MealPnl2Layout = new javax.swing.GroupLayout(MealPnl2);
+        MealPnl2.setLayout(MealPnl2Layout);
+        MealPnl2Layout.setHorizontalGroup(
+            MealPnl2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(MealPnl2Layout.createSequentialGroup()
+                .addGroup(MealPnl2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(MealPnl2Layout.createSequentialGroup()
+                        .addGroup(MealPnl2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MealPnl2Layout.createSequentialGroup()
+                                .addGap(64, 64, 64)
+                                .addGroup(MealPnl2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(carbsLbl2)
+                                    .addComponent(caloriesLbl2)))
+                            .addGroup(MealPnl2Layout.createSequentialGroup()
+                                .addGap(70, 70, 70)
+                                .addComponent(viewBtn2, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(8, 8, 8))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MealPnl2Layout.createSequentialGroup()
+                        .addComponent(timeLbl2, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                .addGroup(MealPnl2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(fatLbl2)
+                    .addComponent(proteinLbl2)
+                    .addComponent(typeLbl2, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(DeleteBtn2))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MealPnl2Layout.createSequentialGroup()
+                .addContainerGap(45, Short.MAX_VALUE)
+                .addComponent(mealNameLbl2, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(35, 35, 35))
+        );
+        MealPnl2Layout.setVerticalGroup(
+            MealPnl2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(MealPnl2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(mealNameLbl2, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(MealPnl2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(timeLbl2, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(typeLbl2))
+                .addGap(5, 5, 5)
+                .addGroup(MealPnl2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(caloriesLbl2)
+                    .addComponent(proteinLbl2))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(MealPnl2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(carbsLbl2)
+                    .addComponent(fatLbl2))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(MealPnl2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(viewBtn2)
+                    .addComponent(DeleteBtn2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(20, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -132,18 +381,23 @@ public class MealPlannerGUI extends javax.swing.JPanel {
                 .addGap(39, 39, 39)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(saveRecipesLbl)
-                        .addContainerGap(835, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
                         .addComponent(titleLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(addRecipeBtn)
-                        .addGap(243, 243, 243))
+                        .addComponent(addRecipeBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(254, 254, 254))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(subTitleLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(MealPnl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(subTitleLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 327, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(saveRecipesLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 0, Short.MAX_VALUE))))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(45, 45, 45)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(MealPnl2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(MealPnl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(MealPnl1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 369, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -151,14 +405,18 @@ public class MealPlannerGUI extends javax.swing.JPanel {
                 .addGap(37, 37, 37)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(titleLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(addRecipeBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(addRecipeBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(subTitleLbl)
                 .addGap(18, 18, 18)
                 .addComponent(saveRecipesLbl)
-                .addGap(26, 26, 26)
-                .addComponent(MealPnl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(424, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(MealPnl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(MealPnl1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(MealPnl2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(227, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -170,16 +428,39 @@ public class MealPlannerGUI extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton DeleteBtn;
+    private javax.swing.JButton DeleteBtn1;
+    private javax.swing.JButton DeleteBtn2;
     private javax.swing.JPanel MealPnl;
+    private javax.swing.JPanel MealPnl1;
+    private javax.swing.JPanel MealPnl2;
     private javax.swing.JButton addRecipeBtn;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel caloriesLbl;
+    private javax.swing.JLabel caloriesLbl1;
+    private javax.swing.JLabel caloriesLbl2;
+    private javax.swing.JLabel carbsLbl;
+    private javax.swing.JLabel carbsLbl1;
+    private javax.swing.JLabel carbsLbl2;
+    private javax.swing.JLabel fatLbl;
+    private javax.swing.JLabel fatLbl1;
+    private javax.swing.JLabel fatLbl2;
     private javax.swing.JLabel mealNameLbl;
+    private javax.swing.JLabel mealNameLbl1;
+    private javax.swing.JLabel mealNameLbl2;
+    private javax.swing.JLabel proteinLbl;
+    private javax.swing.JLabel proteinLbl1;
+    private javax.swing.JLabel proteinLbl2;
     private javax.swing.JLabel saveRecipesLbl;
     private javax.swing.JLabel subTitleLbl;
     private javax.swing.JLabel timeLbl;
+    private javax.swing.JLabel timeLbl1;
+    private javax.swing.JLabel timeLbl2;
     private javax.swing.JLabel titleLbl;
     private javax.swing.JLabel typeLbl;
+    private javax.swing.JLabel typeLbl1;
+    private javax.swing.JLabel typeLbl2;
+    private javax.swing.JButton viewBtn;
+    private javax.swing.JButton viewBtn1;
+    private javax.swing.JButton viewBtn2;
     // End of variables declaration//GEN-END:variables
 }
