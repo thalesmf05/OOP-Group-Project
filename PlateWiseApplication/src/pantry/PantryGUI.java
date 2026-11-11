@@ -289,19 +289,22 @@ public class PantryGUI extends javax.swing.JPanel {
             inventoryPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(inventoryPnlLayout.createSequentialGroup()
                 .addGap(24, 24, 24)
-                .addGroup(inventoryPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                .addGroup(inventoryPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(inventoryPnlLayout.createSequentialGroup()
+                        .addGroup(inventoryPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(inventoryPnlLayout.createSequentialGroup()
+                                .addComponent(searchTf, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(searchBtn))
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(246, Short.MAX_VALUE))
                     .addGroup(inventoryPnlLayout.createSequentialGroup()
                         .addComponent(removeItemBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(updateQuantityBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(33, 33, 33)
-                        .addComponent(expiringItemsBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(inventoryPnlLayout.createSequentialGroup()
-                        .addComponent(searchTf, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(searchBtn))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(246, Short.MAX_VALUE))
+                        .addComponent(updateQuantityBtn)
+                        .addGap(28, 28, 28)
+                        .addComponent(expiringItemsBtn)
+                        .addGap(246, 246, 246))))
         );
         inventoryPnlLayout.setVerticalGroup(
             inventoryPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -348,11 +351,10 @@ public class PantryGUI extends javax.swing.JPanel {
         foodNameRowPnlLayout.setVerticalGroup(
             foodNameRowPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(foodNameRowPnlLayout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(foodNameRowPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(foodNameLbl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(foodNameTf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(foodNameTf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(foodNameLbl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 10, Short.MAX_VALUE))
         );
 
         storageAdviceRowPnl.setPreferredSize(new java.awt.Dimension(700, 45));
@@ -381,11 +383,10 @@ public class PantryGUI extends javax.swing.JPanel {
         storageAdviceRowPnlLayout.setVerticalGroup(
             storageAdviceRowPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(storageAdviceRowPnlLayout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(storageAdviceRowPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(storageAdviceLbl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(storageAdviceTf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(storageAdviceTf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(storageAdviceLbl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 10, Short.MAX_VALUE))
         );
 
         itemTypeRowPnl.setPreferredSize(new java.awt.Dimension(700, 45));
@@ -396,7 +397,8 @@ public class PantryGUI extends javax.swing.JPanel {
         itemTypeLbl.setMinimumSize(new java.awt.Dimension(130, 30));
         itemTypeLbl.setPreferredSize(new java.awt.Dimension(130, 30));
 
-        itemTypeCb.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1. Select Item Type", "2. Perishable", "3. Non-Perishable" }));
+        itemTypeCb.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
+        itemTypeCb.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Item Type...", "1. Perishable", "2. Non-Perishable" }));
         itemTypeCb.setPreferredSize(new java.awt.Dimension(350, 35));
 
         javax.swing.GroupLayout itemTypeRowPnlLayout = new javax.swing.GroupLayout(itemTypeRowPnl);
@@ -408,16 +410,15 @@ public class PantryGUI extends javax.swing.JPanel {
                 .addComponent(itemTypeLbl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(itemTypeCb, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(348, Short.MAX_VALUE))
         );
         itemTypeRowPnlLayout.setVerticalGroup(
             itemTypeRowPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(itemTypeRowPnlLayout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(itemTypeRowPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(itemTypeLbl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(itemTypeCb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(itemTypeCb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(itemTypeLbl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 10, Short.MAX_VALUE))
         );
 
         categoryTf.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
@@ -436,19 +437,19 @@ public class PantryGUI extends javax.swing.JPanel {
         categoryRowPnlLayout.setHorizontalGroup(
             categoryRowPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(categoryRowPnlLayout.createSequentialGroup()
+                .addContainerGap()
                 .addComponent(categoryLbl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(categoryTf, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(352, Short.MAX_VALUE))
+                .addContainerGap(346, Short.MAX_VALUE))
         );
         categoryRowPnlLayout.setVerticalGroup(
             categoryRowPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(categoryRowPnlLayout.createSequentialGroup()
-                .addGap(2, 2, 2)
                 .addGroup(categoryRowPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(categoryLbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(categoryTf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
+                    .addComponent(categoryTf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(categoryLbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(0, 8, Short.MAX_VALUE))
         );
 
         quantityRowPnl.setPreferredSize(new java.awt.Dimension(700, 45));
@@ -478,11 +479,10 @@ public class PantryGUI extends javax.swing.JPanel {
         quantityRowPnlLayout.setVerticalGroup(
             quantityRowPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(quantityRowPnlLayout.createSequentialGroup()
-                .addComponent(quantityTf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(3, 3, 3))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, quantityRowPnlLayout.createSequentialGroup()
-                .addComponent(quantityLbl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGroup(quantityRowPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(quantityTf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(quantityLbl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(12, 12, 12))
         );
 
         unitRowPnl.setPreferredSize(new java.awt.Dimension(700, 45));
@@ -493,7 +493,8 @@ public class PantryGUI extends javax.swing.JPanel {
         unitLbl.setMinimumSize(new java.awt.Dimension(130, 30));
         unitLbl.setPreferredSize(new java.awt.Dimension(130, 30));
 
-        unitCb.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1. Select Unit", "2. Kg", "3. Grams", "4. Litres", "5. Millilitres", "6. Units", "7. Other" }));
+        unitCb.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
+        unitCb.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Unit...", "1. Kg", "2. Grams", "3. Litres", "4. Millilitres", "5. Units", "6. Other" }));
         unitCb.setMinimumSize(new java.awt.Dimension(350, 35));
         unitCb.setPreferredSize(new java.awt.Dimension(350, 35));
         unitCb.addActionListener(this::unitCbActionPerformed);
@@ -504,19 +505,18 @@ public class PantryGUI extends javax.swing.JPanel {
             unitRowPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(unitRowPnlLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(unitLbl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(unitLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(unitCb, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         unitRowPnlLayout.setVerticalGroup(
             unitRowPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-            .addGroup(unitRowPnlLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, unitRowPnlLayout.createSequentialGroup()
                 .addGroup(unitRowPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(unitLbl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(unitCb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(52, 52, 52))
+                    .addComponent(unitCb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(unitLbl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 10, Short.MAX_VALUE))
         );
 
         expiryDateRowPnl.setPreferredSize(new java.awt.Dimension(700, 45));
@@ -544,12 +544,11 @@ public class PantryGUI extends javax.swing.JPanel {
         );
         expiryDateRowPnlLayout.setVerticalGroup(
             expiryDateRowPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, expiryDateRowPnlLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(expiryDateRowPnlLayout.createSequentialGroup()
                 .addGroup(expiryDateRowPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(expiryDateLbl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(expiryDateTf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
+                    .addComponent(expiryDateTf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(expiryDateLbl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 10, Short.MAX_VALUE))
         );
 
         saveItemBtn.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
@@ -563,34 +562,23 @@ public class PantryGUI extends javax.swing.JPanel {
         addItemPnlLayout.setHorizontalGroup(
             addItemPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(addItemPnlLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap()
                 .addGroup(addItemPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(categoryRowPnl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(storageAdviceRowPnl, javax.swing.GroupLayout.DEFAULT_SIZE, 720, Short.MAX_VALUE)
+                    .addComponent(itemTypeRowPnl, javax.swing.GroupLayout.DEFAULT_SIZE, 720, Short.MAX_VALUE)
+                    .addComponent(expiryDateRowPnl, javax.swing.GroupLayout.DEFAULT_SIZE, 720, Short.MAX_VALUE)
+                    .addComponent(unitRowPnl, javax.swing.GroupLayout.DEFAULT_SIZE, 720, Short.MAX_VALUE)
+                    .addComponent(quantityRowPnl, javax.swing.GroupLayout.DEFAULT_SIZE, 720, Short.MAX_VALUE)
+                    .addComponent(foodNameRowPnl, javax.swing.GroupLayout.DEFAULT_SIZE, 720, Short.MAX_VALUE)
                     .addGroup(addItemPnlLayout.createSequentialGroup()
-                        .addComponent(storageAdviceRowPnl, javax.swing.GroupLayout.DEFAULT_SIZE, 718, Short.MAX_VALUE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(addItemPnlLayout.createSequentialGroup()
-                        .addComponent(itemTypeRowPnl, javax.swing.GroupLayout.DEFAULT_SIZE, 718, Short.MAX_VALUE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(addItemPnlLayout.createSequentialGroup()
-                        .addComponent(expiryDateRowPnl, javax.swing.GroupLayout.DEFAULT_SIZE, 718, Short.MAX_VALUE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(addItemPnlLayout.createSequentialGroup()
-                        .addComponent(unitRowPnl, javax.swing.GroupLayout.DEFAULT_SIZE, 718, Short.MAX_VALUE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(addItemPnlLayout.createSequentialGroup()
-                        .addComponent(quantityRowPnl, javax.swing.GroupLayout.DEFAULT_SIZE, 718, Short.MAX_VALUE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(addItemPnlLayout.createSequentialGroup()
-                        .addComponent(foodNameRowPnl, javax.swing.GroupLayout.DEFAULT_SIZE, 718, Short.MAX_VALUE)
+                        .addGroup(addItemPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(categoryRowPnl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(addItemPnlLayout.createSequentialGroup()
+                                .addComponent(saveItemBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(clearBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
-            .addGroup(addItemPnlLayout.createSequentialGroup()
-                .addGap(35, 35, 35)
-                .addComponent(saveItemBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(65, 65, 65)
-                .addComponent(clearBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         addItemPnlLayout.setVerticalGroup(
             addItemPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -624,6 +612,7 @@ public class PantryGUI extends javax.swing.JPanel {
         selectItemLbl.setMinimumSize(new java.awt.Dimension(130, 30));
         selectItemLbl.setPreferredSize(new java.awt.Dimension(130, 30));
 
+        selectItemCb.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
         selectItemCb.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select an item..." }));
         selectItemCb.setName(""); // NOI18N
         selectItemCb.setPreferredSize(new java.awt.Dimension(300, 35));
@@ -742,11 +731,10 @@ public class PantryGUI extends javax.swing.JPanel {
         storageAdviceRowPnl1Layout.setVerticalGroup(
             storageAdviceRowPnl1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(storageAdviceRowPnl1Layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(storageAdviceRowPnl1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(storageAdviceLbl1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(storageAdviceTf1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(storageAdviceTf1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(storageAdviceLbl1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 12, Short.MAX_VALUE))
         );
 
         itemTypeRowPnl1.setPreferredSize(new java.awt.Dimension(700, 35));
@@ -757,7 +745,8 @@ public class PantryGUI extends javax.swing.JPanel {
         itemTypeLbl1.setMinimumSize(new java.awt.Dimension(130, 30));
         itemTypeLbl1.setPreferredSize(new java.awt.Dimension(130, 30));
 
-        itemTypeCb1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1. Select Item Type", "2. Perishable", "3. Non-Perishable" }));
+        itemTypeCb1.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
+        itemTypeCb1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Item Type...", "1. Perishable", "2. Non-Perishable" }));
         itemTypeCb1.setPreferredSize(new java.awt.Dimension(300, 35));
 
         javax.swing.GroupLayout itemTypeRowPnl1Layout = new javax.swing.GroupLayout(itemTypeRowPnl1);
@@ -774,11 +763,10 @@ public class PantryGUI extends javax.swing.JPanel {
         itemTypeRowPnl1Layout.setVerticalGroup(
             itemTypeRowPnl1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(itemTypeRowPnl1Layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(itemTypeRowPnl1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(itemTypeLbl1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(itemTypeCb1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(11, Short.MAX_VALUE))
+                    .addComponent(itemTypeCb1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(itemTypeLbl1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 17, Short.MAX_VALUE))
         );
 
         expiryDateRowPnl1.setPreferredSize(new java.awt.Dimension(700, 35));
@@ -807,11 +795,10 @@ public class PantryGUI extends javax.swing.JPanel {
         expiryDateRowPnl1Layout.setVerticalGroup(
             expiryDateRowPnl1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(expiryDateRowPnl1Layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(expiryDateRowPnl1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(expiryDateLbl1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(expiryDateTf1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(expiryDateTf1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(expiryDateLbl1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 12, Short.MAX_VALUE))
         );
 
         unitRowPnl1.setPreferredSize(new java.awt.Dimension(700, 35));
@@ -822,7 +809,8 @@ public class PantryGUI extends javax.swing.JPanel {
         unitLbl1.setMinimumSize(new java.awt.Dimension(130, 30));
         unitLbl1.setPreferredSize(new java.awt.Dimension(130, 30));
 
-        unitCb1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1. Select Unit", "2. Kg", "3. Grams", "4. Litres", "5. Millilitres", "6. Units", "7. Other" }));
+        unitCb1.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
+        unitCb1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Unit...", "1. Kg", "2. Grams", "3. Litres", "4. Millilitres", "5. Units", "6. Other" }));
         unitCb1.setMinimumSize(new java.awt.Dimension(350, 35));
         unitCb1.setPreferredSize(new java.awt.Dimension(300, 35));
         unitCb1.addActionListener(this::unitCb1ActionPerformed);
@@ -841,11 +829,10 @@ public class PantryGUI extends javax.swing.JPanel {
         unitRowPnl1Layout.setVerticalGroup(
             unitRowPnl1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(unitRowPnl1Layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(unitRowPnl1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(unitLbl1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(unitCb1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(unitCb1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(unitLbl1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 5, Short.MAX_VALUE))
         );
 
         quantityRowPnl1.setPreferredSize(new java.awt.Dimension(700, 35));
@@ -907,11 +894,10 @@ public class PantryGUI extends javax.swing.JPanel {
         foodNameRowPnl1Layout.setVerticalGroup(
             foodNameRowPnl1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(foodNameRowPnl1Layout.createSequentialGroup()
-                .addContainerGap(11, Short.MAX_VALUE)
-                .addComponent(foodNameLbl1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(foodNameRowPnl1Layout.createSequentialGroup()
-                .addComponent(foodNameTf1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGroup(foodNameRowPnl1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(foodNameTf1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(foodNameLbl1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 11, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout editItemPnlLayout = new javax.swing.GroupLayout(editItemPnl);
@@ -934,10 +920,10 @@ public class PantryGUI extends javax.swing.JPanel {
                             .addComponent(storageAdviceRowPnl1, javax.swing.GroupLayout.PREFERRED_SIZE, 714, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(categoryRowPnl1, javax.swing.GroupLayout.PREFERRED_SIZE, 714, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(12, 12, 12))))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, editItemPnlLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(editItemPnlLayout.createSequentialGroup()
+                .addContainerGap()
                 .addComponent(editButtonsPnl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(110, 110, 110))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         editItemPnlLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {categoryRowPnl1, expiryDateRowPnl1, foodNameRowPnl1, itemTypeRowPnl1, quantityRowPnl1, storageAdviceRowPnl1, unitRowPnl1});
