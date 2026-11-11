@@ -16,9 +16,9 @@ public class MainGUI extends javax.swing.JFrame {
      * Creates new form MainGUI
      */
     public MainGUI() {
-        initComponents();
-        setSize(1210, 750);
-        setLocationRelativeTo(null);
+        initComponents(); //intialises gui components
+        setSize(1210, 750);//sets the main gui window size
+        setLocationRelativeTo(null); //centres the gui window
     }
 
     /**
@@ -38,17 +38,20 @@ public class MainGUI extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("PlateWise");
-        setBackground(new java.awt.Color(18, 27, 40));
-        setPreferredSize(new java.awt.Dimension(1210, 750));
+        setBackground(new java.awt.Color(29, 43, 60));
 
-        sideBarPnl.setBackground(new java.awt.Color(13, 29, 47));
+        sideBarPnl.setBackground(new java.awt.Color(35, 52, 72));
         sideBarPnl.setPreferredSize(new java.awt.Dimension(210, 750));
 
+        dailyDiaryBtn.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
         dailyDiaryBtn.setText("Daily Diary");
+        dailyDiaryBtn.addActionListener(this::dailyDiaryBtnActionPerformed);
 
+        mealPlannerBtn.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
         mealPlannerBtn.setText("Meal Planner");
         mealPlannerBtn.addActionListener(this::mealPlannerBtnActionPerformed);
 
+        pantryBtn.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
         pantryBtn.setText("Pantry");
         pantryBtn.addActionListener(this::pantryBtnActionPerformed);
 
@@ -57,25 +60,26 @@ public class MainGUI extends javax.swing.JFrame {
         sideBarPnlLayout.setHorizontalGroup(
             sideBarPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(sideBarPnlLayout.createSequentialGroup()
-                .addGap(42, 42, 42)
-                .addGroup(sideBarPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(pantryBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(mealPlannerBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(dailyDiaryBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(63, Short.MAX_VALUE))
+                .addGap(34, 34, 34)
+                .addGroup(sideBarPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(mealPlannerBtn)
+                    .addComponent(pantryBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(dailyDiaryBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(34, Short.MAX_VALUE))
         );
         sideBarPnlLayout.setVerticalGroup(
             sideBarPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(sideBarPnlLayout.createSequentialGroup()
-                .addGap(89, 89, 89)
-                .addComponent(dailyDiaryBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(44, 44, 44)
+                .addComponent(dailyDiaryBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(pantryBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(pantryBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(mealPlannerBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(448, Short.MAX_VALUE))
+                .addComponent(mealPlannerBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(430, Short.MAX_VALUE))
         );
 
+        mainContentPanel.setBackground(new java.awt.Color(29, 43, 60));
         mainContentPanel.setPreferredSize(new java.awt.Dimension(1000, 750));
 
         javax.swing.GroupLayout mainContentPanelLayout = new javax.swing.GroupLayout(mainContentPanel);
@@ -109,34 +113,67 @@ public class MainGUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void pantryBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pantryBtnActionPerformed
-        // TODO add your handling code here:
+        // Calls the pantry GUI
+        // Remove the current panel contents
         mainContentPanel.removeAll();
 
+        // Set the panel layout
         mainContentPanel.setLayout(new java.awt.BorderLayout());
 
+        // Add the Pantry GUI to the centre of the panel
         mainContentPanel.add(
             new pantry.PantryGUI(),
             java.awt.BorderLayout.CENTER
         );
 
+        // Refresh the panel layout
         mainContentPanel.revalidate();
+
+        // Redraw the panel
         mainContentPanel.repaint();
-        
     }//GEN-LAST:event_pantryBtnActionPerformed
 
     private void mealPlannerBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mealPlannerBtnActionPerformed
+        //Calls the Meal Planner GUI
+        // Remove the current panel contents
         mainContentPanel.removeAll();
 
+        // Set the panel layout
         mainContentPanel.setLayout(new java.awt.BorderLayout());
 
+        // Add the Meal Planner GUI to the centre of the panel
         mainContentPanel.add(
             new mealplanner.GUI.MealPlannerGUI(),
             java.awt.BorderLayout.CENTER
         );
 
+        // Refresh the panel layout
         mainContentPanel.revalidate();
+
+        // Redraw the panel
         mainContentPanel.repaint();
     }//GEN-LAST:event_mealPlannerBtnActionPerformed
+
+    private void dailyDiaryBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dailyDiaryBtnActionPerformed
+        // Calls the daily diary GUI
+        // Remove the current panel contents
+        mainContentPanel.removeAll();
+
+        // Set the panel layout
+        mainContentPanel.setLayout(new java.awt.BorderLayout());
+
+        // Add the Daily Diary GUI to the centre of the panel
+        mainContentPanel.add(
+            new dailydiary.DailyDiaryGUI(),
+            java.awt.BorderLayout.CENTER
+        );
+
+        // Refresh the panel layout
+        mainContentPanel.revalidate();
+
+        // Redraw the panel
+        mainContentPanel.repaint();
+    }//GEN-LAST:event_dailyDiaryBtnActionPerformed
 
     /**
      * @param args the command line arguments
