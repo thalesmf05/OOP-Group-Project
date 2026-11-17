@@ -1,2 +1,15 @@
+# macOS files
+.DS_Store
+
+# Environment variables and secrets
+.env
+
+# Log files
+*.log
+
+# NetBeans private configuration
 /PlateWiseApplication/nbproject/private/
+
+# Generated build files
 /PlateWiseApplication/build/
+/PlateWiseApplication/dist/
