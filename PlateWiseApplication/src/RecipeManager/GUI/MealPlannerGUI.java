@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-package mealplanner.GUI;
+package RecipeManager.GUI;
 
 /**
  *
@@ -67,7 +67,7 @@ public class MealPlannerGUI extends javax.swing.JPanel {
 
         titleLbl.setFont(new java.awt.Font("SansSerif", 1, 24)); // NOI18N
         titleLbl.setForeground(new java.awt.Color(255, 255, 255));
-        titleLbl.setText("Meal Planner");
+        titleLbl.setText("Recipe Planner");
 
         subTitleLbl.setFont(new java.awt.Font("SansSerif", 0, 16)); // NOI18N
         subTitleLbl.setForeground(new java.awt.Color(255, 255, 255));

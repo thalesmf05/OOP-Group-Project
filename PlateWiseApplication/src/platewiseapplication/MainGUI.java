@@ -134,16 +134,16 @@ public class MainGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_pantryBtnActionPerformed
 
     private void mealPlannerBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mealPlannerBtnActionPerformed
-        //Calls the Meal Planner GUI
+        //Calls the Recipe Planner GUI
         // Remove the current panel contents
         mainContentPanel.removeAll();
 
         // Set the panel layout
         mainContentPanel.setLayout(new java.awt.BorderLayout());
 
-        // Add the Meal Planner GUI to the centre of the panel
+        // Add the Recipe Planner GUI to the centre of the panel
         mainContentPanel.add(
-            new mealplanner.GUI.MealPlannerGUI(),
+            new RecipeManager.GUI.MealPlannerGUI(),
             java.awt.BorderLayout.CENTER
         );
 
