@@ -25,7 +25,7 @@ public class Ingredient {
         nextId++; //increment the nextId for the next ingredient
     }
     //constructor for an ingredient that already exists and will be edited, this doesn't generate a new id rather sets the old ingredient id
-    public Ingredient(int id, String unit, String name, double requiredAmount) {
+    public Ingredient(int id, String name, double requiredAmount, String unit) {
         this.id = id; //use the same id as the
         this.unit = unit;
         this.name = name;
