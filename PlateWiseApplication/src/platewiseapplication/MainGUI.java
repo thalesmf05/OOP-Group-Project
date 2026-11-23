@@ -196,7 +196,7 @@ public class MainGUI extends javax.swing.JFrame {
 
         // Add the Recipe Planner GUI to the centre of the panel
         mainContentPanel.add(
-            new RecipeManager.GUI.MealPlannerGUI(),
+            new Recipe.GUI.MealPlannerGUI(),
             java.awt.BorderLayout.CENTER
         );
 

@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package RecipeManager;
+package Recipe;
 
 import java.util.ArrayList;
 
@@ -12,6 +12,11 @@ import java.util.ArrayList;
  */
 public class RecipeManager {
     ArrayList<Recipe> recipes = new ArrayList<Recipe>(); //list of recipes
+
+    //CONSTRUCTOR
+
+
+    public RecipeManager() {}
 
     //GETTERS AND SETTERS
     public ArrayList<Recipe> getRecipes(){ //returns a copy of the recipes arraylist
@@ -46,9 +51,5 @@ public class RecipeManager {
         return null;
     }
 
-
-
-
-
-
+    //TODO save and load from file
 }

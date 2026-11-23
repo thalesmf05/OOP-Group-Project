@@ -13,3 +13,6 @@
 # Generated build files
 /PlateWiseApplication/build/
 /PlateWiseApplication/dist/
+
+# Xml files
+*.xml
