@@ -13,3 +13,6 @@
 # Generated build files
 /PlateWiseApplication/build/
 /PlateWiseApplication/dist/
+
+# Local files
+/link.txt

@@ -118,7 +118,7 @@
                       <Component id="totalItemsTitleLbl" min="-2" max="-2" attributes="0"/>
                       <Component id="totalItemsValueLbl" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="70" max="32767" attributes="0"/>
+                  <EmptySpace pref="83" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -129,7 +129,7 @@
                   <Component id="totalItemsValueLbl" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="totalItemsTitleLbl" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="22" max="32767" attributes="0"/>
+                  <EmptySpace pref="20" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -184,7 +184,7 @@
                       <Component id="perishableTitleLbl" min="-2" max="-2" attributes="0"/>
                       <Component id="perishableValueLbl" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="9" max="32767" attributes="0"/>
+                  <EmptySpace pref="22" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -195,7 +195,7 @@
                   <Component id="perishableValueLbl" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="perishableTitleLbl" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="20" max="32767" attributes="0"/>
+                  <EmptySpace pref="18" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -244,7 +244,7 @@
                       <Component id="expiringTitleLbl" min="-2" max="-2" attributes="0"/>
                       <Component id="expiringValueLbl" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="39" max="32767" attributes="0"/>
+                  <EmptySpace pref="48" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -255,7 +255,7 @@
                   <Component id="expiringValueLbl" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="expiringTitleLbl" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="19" max="32767" attributes="0"/>
+                  <EmptySpace pref="17" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -375,6 +375,7 @@
                   <Font name="SansSerif" size="12" style="1"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Search"/>
+                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="searchBtnActionPerformed"/>
@@ -447,6 +448,7 @@
                   <Font name="SansSerif" size="12" style="1"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Remove Item"/>
+                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JButton" name="updateQuantityBtn">
@@ -455,6 +457,7 @@
                   <Font name="SansSerif" size="12" style="1"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Update Quantity"/>
+                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JButton" name="expiringItemsBtn">
@@ -987,7 +990,7 @@
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Segoe UI" size="12" style="2"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="DD/MM/YYYY"/>
+                    <Property name="text" type="java.lang.String" value="DD-MM-YYYY"/>
                     <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                       <Dimension value="[350, 35]"/>
                     </Property>
@@ -1001,7 +1004,11 @@
                   <Font name="SansSerif" size="12" style="1"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Save"/>
+                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="saveItemBtnActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="clearBtn">
               <Properties>
@@ -1183,6 +1190,7 @@
                       <Font name="SansSerif" size="12" style="1"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="Update Item"/>
+                    <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JButton" name="clearEditBtn">
@@ -1199,6 +1207,7 @@
                       <Font name="SansSerif" size="12" style="1"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="Delete Item"/>
+                    <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
                 </Component>
               </SubComponents>
@@ -1295,7 +1304,7 @@
                               <Component id="storageAdviceTf1" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                               <Component id="storageAdviceLbl1" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace min="0" pref="11" max="32767" attributes="0"/>
+                          <EmptySpace min="0" pref="12" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -1428,7 +1437,7 @@
                               <Component id="expiryDateTf1" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                               <Component id="expiryDateLbl1" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace min="0" pref="11" max="32767" attributes="0"/>
+                          <EmptySpace min="0" pref="12" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -1456,7 +1465,7 @@
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Segoe UI" size="12" style="2"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="DD/MM/YYYY"/>
+                    <Property name="text" type="java.lang.String" value="DD-MM-YYYY"/>
                     <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                       <Dimension value="[300, 35]"/>
                     </Property>
@@ -1636,7 +1645,7 @@
                               <Component id="foodNameTf1" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                               <Component id="foodNameLbl1" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace min="0" pref="10" max="32767" attributes="0"/>
+                          <EmptySpace min="0" pref="11" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
