@@ -12,110 +12,193 @@ import javax.swing.event.DocumentListener;
  *
  * @author Merlin
  */
-  
+public class PantryGUI extends javax.swing.JPanel {
 
-    public class PantryGUI extends javax.swing.JPanel {
+    // creates a Pantry object to manage the pantry inventory
+    private Pantry pantryInventory = new Pantry();
 
-        // creates a Pantry object to manage the pantry inventory
-        private Pantry pantryInventory = new Pantry();
+    public PantryGUI() {
+        initComponents();//initialises the gui components
+        setupButtonListeners();
+        updateExpiryDateField();
+        loadEditItemDropdown();
+        updateEditExpiryDateField();
+    }
 
-        public PantryGUI() {
-            initComponents();//initialises the gui components
-            setupButtonListeners();
-        }
+    // sets up listeners for the buttons
+    private void setupButtonListeners() {
 
-        // sets up listeners for the buttons
-        private void setupButtonListeners() {
-            // creates a listener for text field changes
-            DocumentListener listener = new DocumentListener() {
+        // creates a listener for text field changes
+        DocumentListener listener = new DocumentListener() {
 
-                @Override
-                public void insertUpdate(DocumentEvent e) {
-                    checkRequiredFields();
-//                checkSearchField();
-//                checkEditFields();
-                }
-
-                @Override
-                public void removeUpdate(DocumentEvent e) {
-                    checkRequiredFields();
-//                checkSearchField();
-//                checkEditFields();
-                }
-
-                @Override
-                public void changedUpdate(DocumentEvent e) {
-                    checkRequiredFields();
-//              checkSearchField();
-//              checkEditFields();
-                }
-            };
-
-            // add item form
-            foodNameTf.getDocument().addDocumentListener(listener);
-            quantityTf.getDocument().addDocumentListener(listener);
-            expiryDateTf.getDocument().addDocumentListener(listener);
-
-            // search field
-            searchTf.getDocument().addDocumentListener(listener);
-
-            // edit item form
-            foodNameTf1.getDocument().addDocumentListener(listener);
-            quantityTf1.getDocument().addDocumentListener(listener);
-            expiryDateTf1.getDocument().addDocumentListener(listener);
-
-            // add item dropdowns
-            itemTypeCb.addActionListener(e -> checkRequiredFields());
-            unitCb.addActionListener(e -> checkRequiredFields());
-
-            // edit item dropdowns
-//        itemTypeCb1.addActionListener(e -> checkEditFields());
-//        unitCb1.addActionListener(e -> checkEditFields());
-            // edit item selection
-//        selectItemCb.addActionListener(e -> checkEditFields());
-            // inventory table selection
-            inventoryTbl.getSelectionModel().addListSelectionListener(e -> {
-                if (!e.getValueIsAdjusting()) {
-//                checkInventorySelection();
-                }
-            });
-
-            // checks buttons when the gui opens
-            checkRequiredFields();
-//        checkSearchField();
-//        checkEditFields();
-//        checkInventorySelection();
-        }
-
-        // Checks whether the required Add Item fields are completed
-        private void checkRequiredFields() {
-            // Retrieves the values from the Add Item form
-            String foodName = foodNameTf.getText().trim();
-            String quantityText = quantityTf.getText().trim();
-            String expiryDate = expiryDateTf.getText().trim();
-            String itemType = itemTypeCb.getSelectedItem().toString();
-            String unit = unitCb.getSelectedItem().toString();
-
-            // Checks the basic required fields
-            boolean validFields = !foodName.isEmpty()
-                    && !foodName.equals("e.g. Chicken, rice, milk")
-                    && !expiryDate.isEmpty()
-                    && !expiryDate.equals("DD-MM-YYYY")
-                    && !itemType.equals("Select Item Type...")
-                    && !unit.equals("Select Unit...");
-
-            // Checks whether the quantity is a valid positive number
-            try {
-                double quantity = Double.parseDouble(quantityText);
-
-                if (quantity <= 0) {
-                    validFields = false;
-                }
-            } catch (NumberFormatException e) {
-                validFields = false;
+            @Override
+            public void insertUpdate(DocumentEvent e) {
+                checkRequiredFields();
+                checkSearchField();
+                checkEditFields();
             }
 
-            // Checks whether the expiry date is valid
+            @Override
+            public void removeUpdate(DocumentEvent e) {
+                checkRequiredFields();
+                checkSearchField();
+                checkEditFields();
+            }
+
+            @Override
+            public void changedUpdate(DocumentEvent e) {
+                checkRequiredFields();
+                checkSearchField();
+                checkEditFields();
+            }
+        };
+
+        // add item form
+        foodNameTf.getDocument().addDocumentListener(listener);
+        quantityTf.getDocument().addDocumentListener(listener);
+        expiryDateTf.getDocument().addDocumentListener(listener);
+
+        // search field
+        searchTf.getDocument().addDocumentListener(listener);
+
+        // edit item form
+        foodNameTf1.getDocument().addDocumentListener(listener);
+        quantityTf1.getDocument().addDocumentListener(listener);
+        expiryDateTf1.getDocument().addDocumentListener(listener);
+
+        // add item dropdowns
+        itemTypeCb.addActionListener(e -> {
+            updateExpiryDateField();
+            checkRequiredFields();
+        });
+        unitCb.addActionListener(e -> checkRequiredFields());
+
+        // edit item dropdowns
+        itemTypeCb1.addActionListener(e -> {
+            updateEditExpiryDateField();
+            checkEditFields();
+        });
+        unitCb1.addActionListener(e -> checkEditFields());
+
+        // edit item selection
+        selectItemCb.addActionListener(e -> populateEditForm());
+
+        // checks buttons when the gui opens
+        checkRequiredFields();
+        checkSearchField();
+        checkEditFields();
+    }
+
+    // loads pantry items into the edit item dropdown
+    private void loadEditItemDropdown() {
+
+        // clears the existing dropdown items
+        selectItemCb.removeAllItems();
+
+        // adds the default selection
+        selectItemCb.addItem("Select an item...");
+
+        // loops through the pantry inventory
+        for (PantryItem item : pantryInventory.getItems()) {
+            // adds each pantry item's name to the dropdown
+            selectItemCb.addItem(item.getFoodName());
+        }
+    }
+
+    // populates the edit form with the selected pantry item
+    private void populateEditForm() {
+
+        // gets the selected item index
+        int selectedIndex = selectItemCb.getSelectedIndex();
+
+        // checks whether an actual item has been selected
+        if (selectedIndex <= 0) {
+            return;
+        }
+
+        // gets the selected pantry item from the inventory
+        PantryItem item = pantryInventory.getItems().get(selectedIndex - 1);
+
+        // populates the common fields
+        foodNameTf1.setText(item.getFoodName());
+        quantityTf1.setText(String.valueOf(item.getQuantity()));
+        expiryDateTf1.setText(item.getExpiryDate());
+
+        // selects the item's unit
+        unitCb1.setSelectedItem(item.getUnit());
+
+        // checks whether the item is perishable
+        if (item instanceof PerishableItem) {
+
+            PerishableItem perishableItem = (PerishableItem) item;
+
+            itemTypeCb1.setSelectedItem("1. Perishable");
+            storageAdviceTf1.setText(perishableItem.getStorageAdvice());
+            categoryTf1.setText("");
+
+        } else if (item instanceof NonPerishableItem) {
+
+            NonPerishableItem nonPerishableItem = (NonPerishableItem) item;
+
+            itemTypeCb1.setSelectedItem("2. Non-Perishable");
+            categoryTf1.setText(nonPerishableItem.getCategory());
+            storageAdviceTf1.setText("");
+        }
+
+        // checks whether the update button can be enabled
+        updateEditExpiryDateField();
+        checkEditFields();
+    }
+
+    // enables or disables the expiry date field based on item type
+    private void updateExpiryDateField() {
+
+        String itemType = itemTypeCb.getSelectedItem().toString();
+
+        // checks whether the item is perishable
+        if (itemType.equals("1. Perishable")) {
+            expiryDateTf.setEnabled(true);
+        } else {
+            expiryDateTf.setText("");
+            expiryDateTf.setEnabled(false);
+        }
+    }
+
+    // Checks whether the required Add Item fields are completed
+    private void checkRequiredFields() {
+        // Retrieves the values from the Add Item form
+        String foodName = foodNameTf.getText().trim();
+        String quantityText = quantityTf.getText().trim();
+        String expiryDate = expiryDateTf.getText().trim();
+        String itemType = itemTypeCb.getSelectedItem().toString();
+        String unit = unitCb.getSelectedItem().toString();
+
+        // Checks the basic required fields
+        boolean validFields = !foodName.isEmpty()
+                && !foodName.equals("e.g. Chicken, rice, milk")
+                && !itemType.equals("Select Item Type...")
+                && !unit.equals("Select Unit...");
+
+        // checks the expiry date only for perishable items
+        if (itemType.equals("1. Perishable")) {
+            validFields = validFields
+                    && !expiryDate.isEmpty()
+                    && !expiryDate.equals("DD-MM-YYYY");
+        }
+
+        // Checks whether the quantity is a valid positive number
+        try {
+            double quantity = Double.parseDouble(quantityText);
+
+            if (quantity <= 0) {
+                validFields = false;
+            }
+        } catch (NumberFormatException e) {
+            validFields = false;
+        }
+
+        // checks whether the expiry date is valid for perishable items
+        if (itemType.equals("1. Perishable")) {
             try {
                 java.time.LocalDate.parse(
                         expiryDate,
@@ -124,65 +207,193 @@ import javax.swing.event.DocumentListener;
             } catch (java.time.format.DateTimeParseException e) {
                 validFields = false;
             }
-            // Enables or disables the Save Item button
-            saveItemBtn.setEnabled(validFields);
         }
+        // Enables or disables the Save Item button
+        saveItemBtn.setEnabled(validFields);
+    }
 
-        // refreshes the pantry inventory table
-        private void refreshInventoryTable() {
+    // enables or disables the edit expiry date field based on item type
+    private void updateEditExpiryDateField() {
 
-            //gets the table model
-            javax.swing.table.DefaultTableModel model
-                    = (javax.swing.table.DefaultTableModel) inventoryTbl.getModel();
+        // gets the currently selected item type from the dropdown
+        String itemType = itemTypeCb1.getSelectedItem().toString();
 
-            //clears the existing table rows
-            model.setRowCount(0);
+        // checks whether the selected item is perishable
+        if (itemType.equals("1. Perishable")) {
 
-            //loops through all pantry items
-            for (PantryItem item : pantryInventory.getItems()) {
-                //determines the item type
-                String itemType;
+            // enables the expiry date field for perishable items
+            expiryDateTf1.setEnabled(true);
 
-                if (item instanceof PerishableItem) {
-                    itemType = "Perishable";
-                } else {
-                    itemType = "Non-Perishable";
-                }
+            // enables the storage advice field and its label
+            storageAdviceTf1.setEnabled(true);
+            storageAdviceLbl1.setEnabled(true);
 
-                //adds the item details to the table
-                model.addRow(new Object[]{
-                    item.getFoodName(),
-                    item.getQuantity(),
-                    item.getUnit(),
-                    item.getExpiryDate(),
-                    itemType
-                });
+            // disables the category field and its label
+            categoryTf1.setEnabled(false);
+            categoryLbl1.setEnabled(false);
+
+        } // checks whether the selected item is non-perishable
+        else if (itemType.equals("2. Non-Perishable")) {
+
+            // clears and disables the expiry date field
+            expiryDateTf1.setText("");
+            expiryDateTf1.setEnabled(false);
+
+            // clears and disables the storage advice field and its label
+            storageAdviceTf1.setText("");
+            storageAdviceTf1.setEnabled(false);
+            storageAdviceLbl1.setEnabled(false);
+
+            // enables the category field and its label
+            categoryTf1.setEnabled(true);
+            categoryLbl1.setEnabled(true);
+
+        } // handles the case where no item type has been selected
+        else {
+
+            // disables the expiry date field
+            expiryDateTf1.setEnabled(false);
+
+            // disables the storage advice field and its label
+            storageAdviceTf1.setEnabled(false);
+            storageAdviceLbl1.setEnabled(false);
+
+            // disables the category field and its label
+            categoryTf1.setEnabled(false);
+            categoryLbl1.setEnabled(false);
+        }
+    }
+
+    // checks whether the search field contains text
+    private void checkSearchField() {
+
+        // gets the search text
+        String searchText = searchTf.getText().trim();
+
+        // checks whether the search field is empty
+        boolean validSearch = !searchText.isEmpty()
+                && !searchText.equals("Search pantry items...");
+
+        // enables or disables the search button
+        searchBtn.setEnabled(validSearch);
+    }
+
+    // checks whether the Edit Item fields are completed
+    private void checkEditFields() {
+
+        // gets the values from the Edit Item form
+        String foodName = foodNameTf1.getText().trim();
+        String quantityText = quantityTf1.getText().trim();
+        String expiryDate = expiryDateTf1.getText().trim();
+
+        String itemType = itemTypeCb1.getSelectedItem().toString();
+        String unit = unitCb1.getSelectedItem().toString();
+
+        // checks the basic required fields
+        boolean validFields = selectItemCb.getSelectedIndex() > 0
+                && !foodName.isEmpty()
+                && !foodName.equals("e.g. Chicken, rice, milk")
+                && !expiryDate.isEmpty()
+                && !expiryDate.equals("DD-MM-YYYY")
+                && !itemType.equals("Select Item Type...")
+                && !unit.equals("Select Unit...");
+
+        // checks whether the quantity is a valid positive number
+        try {
+            double quantity = Double.parseDouble(quantityText);
+
+            if (quantity <= 0) {
+                validFields = false;
             }
 
+        } catch (NumberFormatException e) {
+            validFields = false;
         }
+
+        // checks whether the expiry date is valid
+        try {
+            java.time.LocalDate.parse(
+                    expiryDate,
+                    java.time.format.DateTimeFormatter.ofPattern("dd-MM-yyyy")
+            );
+
+        } catch (java.time.format.DateTimeParseException e) {
+            validFields = false;
+        }
+
+        // checks the additional fields for each item type
+        if (itemType.equals("1. Perishable")) {
+
+            if (storageAdviceTf1.getText().trim().isEmpty()) {
+                validFields = false;
+            }
+
+        } else if (itemType.equals("2. Non-Perishable")) {
+
+            if (categoryTf1.getText().trim().isEmpty()) {
+                validFields = false;
+            }
+        }
+
+        // enables or disables the Update Item button
+        updateItemBtn.setEnabled(validFields);
+    }
+
+    // refreshes the pantry inventory table
+    private void refreshInventoryTable() {
+
+        //gets the table model
+        javax.swing.table.DefaultTableModel model
+                = (javax.swing.table.DefaultTableModel) inventoryTbl.getModel();
+
+        //clears the existing table rows
+        model.setRowCount(0);
+
+        //loops through all pantry items
+        for (PantryItem item : pantryInventory.getItems()) {
+            //determines the item type
+            String itemType;
+
+            if (item instanceof PerishableItem) {
+                itemType = "Perishable";
+            } else {
+                itemType = "Non-Perishable";
+            }
+
+            //adds the item details to the table
+            model.addRow(new Object[]{
+                item.getFoodName(),
+                item.getQuantity(),
+                item.getUnit(),
+                item.getExpiryDate(),
+                itemType
+            });
+        }
+
+    }
 
     // updates the pantry statistics
     private void updatePantryStatistics() {
 
         //gets the total number of pantry items
         int totalItems = pantryInventory.getItems().size();
-        
+
         //creates var to store the count of perishable items
         int perishableItems = 0;
-        
-        for (PantryItem item : pantryInventory.getItems()){
-            if(item instanceof PerishableItem){
+
+        for (PantryItem item : pantryInventory.getItems()) {
+            if (item instanceof PerishableItem) {
                 perishableItems++;
             }
         }
         //gets the number of items expiring soon
         int expiringItems = pantryInventory.getExpiringItems(2).size();
-        
+
         //updates the stat labels
         totalItemsValueLbl.setText(String.valueOf(totalItems));
         perishableValueLbl.setText(String.valueOf(perishableItems));
         expiringValueLbl.setText(String.valueOf(expiringItems));
-        
+
     }
 
     /**
@@ -211,8 +422,6 @@ import javax.swing.event.DocumentListener;
         searchBtn = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         inventoryTbl = new javax.swing.JTable();
-        removeItemBtn = new javax.swing.JButton();
-        updateQuantityBtn = new javax.swing.JButton();
         expiringItemsBtn = new javax.swing.JButton();
         addItemPnl = new javax.swing.JPanel();
         foodNameRowPnl = new javax.swing.JPanel();
@@ -444,16 +653,9 @@ import javax.swing.event.DocumentListener;
         jScrollPane1.setViewportView(inventoryTbl);
         inventoryTbl.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
 
-        removeItemBtn.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
-        removeItemBtn.setText("Remove Item");
-        removeItemBtn.setEnabled(false);
-
-        updateQuantityBtn.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
-        updateQuantityBtn.setText("Update Quantity");
-        updateQuantityBtn.setEnabled(false);
-
         expiringItemsBtn.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
         expiringItemsBtn.setText("Show Expiring Items");
+        expiringItemsBtn.addActionListener(this::expiringItemsBtnActionPerformed);
 
         javax.swing.GroupLayout inventoryPnlLayout = new javax.swing.GroupLayout(inventoryPnl);
         inventoryPnl.setLayout(inventoryPnlLayout);
@@ -461,22 +663,14 @@ import javax.swing.event.DocumentListener;
             inventoryPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(inventoryPnlLayout.createSequentialGroup()
                 .addGap(24, 24, 24)
-                .addGroup(inventoryPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(inventoryPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 561, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(expiringItemsBtn)
                     .addGroup(inventoryPnlLayout.createSequentialGroup()
-                        .addGroup(inventoryPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addGroup(inventoryPnlLayout.createSequentialGroup()
-                                .addComponent(searchTf, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(searchBtn))
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(246, Short.MAX_VALUE))
-                    .addGroup(inventoryPnlLayout.createSequentialGroup()
-                        .addComponent(removeItemBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(updateQuantityBtn)
-                        .addGap(28, 28, 28)
-                        .addComponent(expiringItemsBtn)
-                        .addGap(246, 246, 246))))
+                        .addComponent(searchTf, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(searchBtn)))
+                .addContainerGap(147, Short.MAX_VALUE))
         );
         inventoryPnlLayout.setVerticalGroup(
             inventoryPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -486,13 +680,10 @@ import javax.swing.event.DocumentListener;
                     .addComponent(searchBtn)
                     .addComponent(searchTf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
-                .addGroup(inventoryPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(expiringItemsBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(updateQuantityBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(removeItemBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(35, 35, 35))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(expiringItemsBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(37, 37, 37))
         );
 
         pantryTabbedPn.addTab("Inventory", inventoryPnl);
@@ -730,6 +921,7 @@ import javax.swing.event.DocumentListener;
 
         clearBtn.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
         clearBtn.setText("Clear");
+        clearBtn.addActionListener(this::clearBtnActionPerformed);
 
         javax.swing.GroupLayout addItemPnlLayout = new javax.swing.GroupLayout(addItemPnl);
         addItemPnl.setLayout(addItemPnlLayout);
@@ -815,13 +1007,16 @@ import javax.swing.event.DocumentListener;
         updateItemBtn.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
         updateItemBtn.setText("Update Item");
         updateItemBtn.setEnabled(false);
+        updateItemBtn.addActionListener(this::updateItemBtnActionPerformed);
 
         clearEditBtn.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
         clearEditBtn.setText("Clear");
+        clearEditBtn.addActionListener(this::clearEditBtnActionPerformed);
 
         deleteItemBtn.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
         deleteItemBtn.setText("Delete Item");
         deleteItemBtn.setEnabled(false);
+        deleteItemBtn.addActionListener(this::deleteItemBtnActionPerformed);
 
         javax.swing.GroupLayout editButtonsPnlLayout = new javax.swing.GroupLayout(editButtonsPnl);
         editButtonsPnl.setLayout(editButtonsPnlLayout);
@@ -1174,7 +1369,55 @@ import javax.swing.event.DocumentListener;
     }//GEN-LAST:event_searchTfActionPerformed
 
     private void searchBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchBtnActionPerformed
-        // TODO add your handling code here:
+
+        // gets the search text
+        String searchText = searchTf.getText().trim().toLowerCase();
+
+        // gets the table model
+        javax.swing.table.DefaultTableModel model
+                = (javax.swing.table.DefaultTableModel) inventoryTbl.getModel();
+
+        // clears the existing table rows
+        model.setRowCount(0);
+
+        // stores whether a matching item was found
+        boolean itemFound = false;
+
+        // searches through the pantry inventory
+        for (PantryItem item : pantryInventory.getItems()) {
+
+            // checks whether the food name contains the search text
+            if (item.getFoodName().toLowerCase().contains(searchText)) {
+
+                // determines the item type
+                String itemType;
+
+                if (item instanceof PerishableItem) {
+                    itemType = "Perishable";
+                } else {
+                    itemType = "Non-Perishable";
+                }
+
+                // adds the matching item to the table
+                model.addRow(new Object[]{
+                    item.getFoodName(),
+                    item.getQuantity(),
+                    item.getUnit(),
+                    item.getExpiryDate(),
+                    itemType
+                });
+
+                itemFound = true;
+            }
+        }
+
+        // informs the user if no matching items were found
+        if (!itemFound) {
+            JOptionPane.showMessageDialog(this,
+                    "No matching pantry items were found.");
+        }
+
+
     }//GEN-LAST:event_searchBtnActionPerformed
 
     private void categoryTfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_categoryTfActionPerformed
@@ -1275,6 +1518,8 @@ import javax.swing.event.DocumentListener;
 
         // adds the new pantry item to the inventory
         pantryInventory.addItem(newItem);
+        //updates edit section dropdown list
+        loadEditItemDropdown();
 
         // refreshes the inventory table and statistics
         refreshInventoryTable();
@@ -1283,6 +1528,176 @@ import javax.swing.event.DocumentListener;
         // confirms that the item was added
         JOptionPane.showMessageDialog(this, "The item you entered has been added to the pantry successfully.");
     }//GEN-LAST:event_saveItemBtnActionPerformed
+
+    private void clearBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearBtnActionPerformed
+        // clears the text fields
+        foodNameTf.setText("");
+        quantityTf.setText("");
+        expiryDateTf.setText("");
+        storageAdviceTf.setText("");
+        categoryTf.setText("");
+
+        // resets the dropdown menus
+        unitCb.setSelectedIndex(0);
+        itemTypeCb.setSelectedIndex(0);
+
+        // disables the save button
+        saveItemBtn.setEnabled(false);
+    }//GEN-LAST:event_clearBtnActionPerformed
+
+    private void updateItemBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateItemBtnActionPerformed
+        // TODO add your handling code here:
+        // gets the selected item index
+        int selectedIndex = selectItemCb.getSelectedIndex() - 1;
+
+// checks that an item is selected
+        if (selectedIndex < 0) {
+            JOptionPane.showMessageDialog(this, "Please select an item to update.");
+            return;
+        }
+
+// retrieves the values from the edit form
+        String foodName = foodNameTf1.getText().trim();
+        String unit = unitCb1.getSelectedItem().toString();
+        String expiryDate = expiryDateTf1.getText().trim();
+        String itemType = itemTypeCb1.getSelectedItem().toString();
+        String storageAdvice = storageAdviceTf1.getText().trim();
+        String category = categoryTf1.getText().trim();
+
+// validates the quantity
+        double quantity;
+
+        try {
+            quantity = Double.parseDouble(quantityTf1.getText().trim());
+
+            if (quantity <= 0) {
+                JOptionPane.showMessageDialog(this, "Quantity must be greater than zero.");
+                return;
+            }
+
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "Please enter a valid quantity.");
+            return;
+        }
+
+        // creates the updated item
+        PantryItem updatedItem;
+
+        if (itemType.equals("1. Perishable")) {
+
+            if (expiryDate.isEmpty() || storageAdvice.isEmpty()) {
+                JOptionPane.showMessageDialog(this, "Please enter the expiry date and storage advice.");
+                return;
+            }
+
+            try {
+                java.time.LocalDate.parse(
+                        expiryDate,
+                        java.time.format.DateTimeFormatter.ofPattern("dd-MM-yyyy")
+                );
+            } catch (java.time.format.DateTimeParseException e) {
+                JOptionPane.showMessageDialog(this, "Please enter the expiry date in DD-MM-YYYY format.");
+                return;
+            }
+
+            PerishableItem perishableItem = new PerishableItem(foodName, unit, expiryDate, quantity);
+            perishableItem.setStorageAdvice(storageAdvice);
+            updatedItem = perishableItem;
+
+        } else if (itemType.equals("2. Non-Perishable")) {
+
+            if (category.isEmpty()) {
+                JOptionPane.showMessageDialog(this, "Please enter an item category.");
+                return;
+            }
+
+            NonPerishableItem nonPerishableItem = new NonPerishableItem(foodName, unit, expiryDate, quantity);
+            nonPerishableItem.setCategory(category);
+            updatedItem = nonPerishableItem;
+
+        } else {
+            JOptionPane.showMessageDialog(this, "Please select an item type.");
+            return;
+        }
+
+        // replaces the existing item
+        pantryInventory.getItems().set(selectedIndex, updatedItem);
+
+        // refreshes the inventory and edit dropdown
+        refreshInventoryTable();
+        loadEditItemDropdown();
+        updatePantryStatistics();
+
+        // confirms the update
+        JOptionPane.showMessageDialog(this, "Pantry item updated successfully.");
+    }//GEN-LAST:event_updateItemBtnActionPerformed
+
+    private void clearEditBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearEditBtnActionPerformed
+
+        // resets the selected pantry item
+        selectItemCb.setSelectedIndex(0);
+
+        // clears the edit form fields
+        foodNameTf1.setText("");
+        quantityTf1.setText("");
+        expiryDateTf1.setText("");
+        storageAdviceTf1.setText("");
+        categoryTf1.setText("");
+
+        // resets the dropdown selections
+        itemTypeCb1.setSelectedIndex(0);
+        unitCb1.setSelectedIndex(0);
+
+        // disables the update button
+        checkEditFields();
+    }//GEN-LAST:event_clearEditBtnActionPerformed
+
+    private void deleteItemBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteItemBtnActionPerformed
+
+        // gets the selected item index
+        int selectedIndex = selectItemCb.getSelectedIndex() - 1;
+
+        // checks whether an item has been selected
+        if (selectedIndex < 0) {
+            JOptionPane.showMessageDialog(this, "Please select an item to delete.");
+            return;
+        }
+
+        // removes the selected item from the pantry
+        pantryInventory.getItems().remove(selectedIndex);
+
+        // refreshes the inventory and edit dropdown
+        refreshInventoryTable();
+        loadEditItemDropdown();
+        updatePantryStatistics();
+
+        // confirms the deletion
+        JOptionPane.showMessageDialog(this, "Pantry item deleted successfully.");
+
+    }//GEN-LAST:event_deleteItemBtnActionPerformed
+
+    private void expiringItemsBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_expiringItemsBtnActionPerformed
+
+        // gets pantry items expiring within the next 2 days
+        java.util.ArrayList<PantryItem> expiringItems = pantryInventory.getExpiringItems(2);
+
+        // checks whether any items are expiring soon
+        if (expiringItems.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "There are no items expiring within the next 2 days.");
+            return;
+        }
+
+        // creates a message containing the expiring items
+        String message = "Items expiring soon:\n\n";
+
+        for (PantryItem item : expiringItems) {
+            message += item.getFoodName()
+                    + " - Expires: " + item.getExpiryDate() + "\n";
+        }
+        // displays the expiring items
+        JOptionPane.showMessageDialog(this, message);
+
+    }//GEN-LAST:event_expiringItemsBtnActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -1335,7 +1750,6 @@ import javax.swing.event.DocumentListener;
     private javax.swing.JPanel quantityRowPnl1;
     private javax.swing.JTextField quantityTf;
     private javax.swing.JTextField quantityTf1;
-    private javax.swing.JButton removeItemBtn;
     private javax.swing.JButton saveItemBtn;
     private javax.swing.JButton searchBtn;
     private javax.swing.JTextField searchTf;
@@ -1358,6 +1772,5 @@ import javax.swing.event.DocumentListener;
     private javax.swing.JPanel unitRowPnl;
     private javax.swing.JPanel unitRowPnl1;
     private javax.swing.JButton updateItemBtn;
-    private javax.swing.JButton updateQuantityBtn;
     // End of variables declaration//GEN-END:variables
 }

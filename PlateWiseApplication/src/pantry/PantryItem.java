@@ -10,7 +10,7 @@ package pantry;
  * @author Merlin M
  */
 // abstract parent class for all pantry items, shares attributes and methods
-public abstract class PantryItem {
+public abstract class PantryItem implements java.io.Serializable {
     
     //delcares variables
     private String foodName, unit, expiryDate;

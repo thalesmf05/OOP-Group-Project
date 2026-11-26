@@ -10,7 +10,7 @@ import java.util.ArrayList; //adds import for arraylist
  *
  * @author Merlin M
  */
-public class Pantry {
+public class Pantry implements java.io.Serializable {
     
     //creates an array list that will hold all of the items in the pantry
     private ArrayList<PantryItem> items;
